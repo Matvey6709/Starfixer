@@ -1,0 +1,43 @@
+# Игнорируем папки, генерируемые Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Игнорируем кэш памяти (на всякий случай)
+MemoryCaptures/
+
+# Игнорируем файлы проектов IDE (Visual Studio, Rider и т.д.)
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vsconfig
+
+# Игнорируем системные файлы ОС (Windows / Mac)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Игнорируем файлы крашей Unity
+sysinfo.txt
+
+# Игнорируем локальные файлы конфигурации пакетов
+/[Pp]ackages/manifest.json.lock
