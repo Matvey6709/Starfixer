@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator anim;
-
+    private bool isFacingRight = false;
     // Start вызывается один раз перед первым кадром
     void Start()
     {
@@ -31,12 +31,22 @@ public class PlayerController : MonoBehaviour
 
         // ПЕРЕДАЕМ ВВОД В АНИМАТОР
         // Эти строки заставят аниматор "знать", куда мы жмем
+        // Получаем текущий масштаб
         anim.SetFloat("Horizontal", moveInput.x);
         anim.SetFloat("Vertical", moveInput.y);
 
         // Логика включения анимации движения (у тебя уже есть)
         bool isMoving = (moveInput.magnitude > 0);
         anim.SetBool("IsWalking", isMoving);
+
+        // --- ЛОГИКА ПОВОРОТА (FLIP) ---
+
+        // Если жмем ВПРАВО (x > 0) и персонаж смотрит ВЛЕВО
+        if (moveInput.x > 0 && !isFacingRight)
+            Flip();
+        // Если жмем ВЛЕВО (x < 0) и персонаж смотрит ВПРАВО
+        else if (moveInput.x < 0 && isFacingRight)
+            Flip();
     }
 
     // FixedUpdate вызывается фиксированное количество раз в секунду (для физики)
@@ -47,5 +57,17 @@ public class PlayerController : MonoBehaviour
         // rb.position - текущая позиция.
         // (moveInput * moveSpeed * Time.fixedDeltatime) - смещение за этот физический такт.
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    // Отдельная функция для поворота
+    void Flip()
+    {
+        // Меняем логическое состояние
+        isFacingRight = !isFacingRight;
+
+        // Получаем и инвертируем масштаб
+        Vector3 currentScale = transform.localScale;
+        currentScale.x *= -1;
+        transform.localScale = currentScale;
     }
 }
