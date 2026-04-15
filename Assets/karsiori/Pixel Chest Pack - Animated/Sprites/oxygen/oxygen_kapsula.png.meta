@@ -1,0 +1,464 @@
+fileFormatVersion: 2
+guid: cdebf08ea5e69af4990fa648b3b3ce4d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: oxygen_kapsula_0
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 880
+        width: 396
+        height: 715
+      alignment: 9
+      pivot: {x: 0.5046577, y: 0.92358893}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 504188dbaac5ac542b00a605a8730b9f
+      internalID: 696375219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_1
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 882
+        width: 386
+        height: 710
+      alignment: 9
+      pivot: {x: 0.50121725, y: 0.9274299}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a99d4e07ebe80945aab4bbe38522b46
+      internalID: -1500844791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_2
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 882
+        width: 385
+        height: 713
+      alignment: 9
+      pivot: {x: 0.50334567, y: 0.9236172}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b82bb4e4b73ad45b1287aac22fb372
+      internalID: 950000080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_3
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 882
+        width: 390
+        height: 713
+      alignment: 9
+      pivot: {x: 0.50639427, y: 0.9233609}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdaaa3d64d5eff14aa5f1c4fc831da78
+      internalID: -597691475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_4
+      rect:
+        serializedVersion: 2
+        x: 1784
+        y: 882
+        width: 388
+        height: 713
+      alignment: 9
+      pivot: {x: 0.5030886, y: 0.9231409}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2726214a17654ab4f8a231e425ed7f1b
+      internalID: 563386082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_5
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 112
+        width: 392
+        height: 716
+      alignment: 9
+      pivot: {x: 0.50436556, y: 0.9243234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 409b91d6a3d4d3742bc694992dd54383
+      internalID: -937626394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_6
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 114
+        width: 388
+        height: 714
+      alignment: 9
+      pivot: {x: 0.50559604, y: 0.9242148}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394b0259ae0059546a8044eae2dd3949
+      internalID: -319550595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_7
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 114
+        width: 386
+        height: 714
+      alignment: 9
+      pivot: {x: 0.5000424, y: 0.9244814}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8ef14d3df62514e801cc7a231d4019
+      internalID: -2019646616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_8
+      rect:
+        serializedVersion: 2
+        x: 1785
+        y: 112
+        width: 389
+        height: 716
+      alignment: 9
+      pivot: {x: 0.50258076, y: 0.92452055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732356947fe8d5349b1863187d1a576b
+      internalID: 1977204454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_9
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 42
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56d0fbbfc60d2694e94aa8e410763c04
+      internalID: 449740170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_10
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 42
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da40c8f270bc0ac46aa88e68f1cbbd48
+      internalID: 2036177167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_11
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 42
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ddfe1515be63c479d418ce105de23c
+      internalID: 823330120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_12
+      rect:
+        serializedVersion: 2
+        x: 2007
+        y: 42
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b048335b4db7714384f431690c41a31
+      internalID: 203892842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_13
+      rect:
+        serializedVersion: 2
+        x: 2077
+        y: 42
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00316857ad2b50e4f91b1e52fde56c93
+      internalID: 376146550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: oxygen_kapsula_14
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 113
+        width: 394
+        height: 714
+      alignment: 9
+      pivot: {x: 0.49785447, y: 0.9250297}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831fbbc89f32078438f9c36a01410b26
+      internalID: -468120122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b106fa44a11d50c45b61a910653e59f2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      oxygen_kapsula_0: 696375219
+      oxygen_kapsula_1: -1500844791
+      oxygen_kapsula_10: 2036177167
+      oxygen_kapsula_11: 823330120
+      oxygen_kapsula_12: 203892842
+      oxygen_kapsula_13: 376146550
+      oxygen_kapsula_14: -468120122
+      oxygen_kapsula_2: 950000080
+      oxygen_kapsula_3: -597691475
+      oxygen_kapsula_4: 563386082
+      oxygen_kapsula_5: -937626394
+      oxygen_kapsula_6: -319550595
+      oxygen_kapsula_7: -2019646616
+      oxygen_kapsula_8: 1977204454
+      oxygen_kapsula_9: 449740170
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

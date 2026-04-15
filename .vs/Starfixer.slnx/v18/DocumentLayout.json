@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\647\\Starfixer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\chest_interaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\chest_interaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -18,11 +22,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Chest_Interaction.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Chest_Interaction.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Chest_Interaction.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Chest_Interaction.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Chest_Interaction.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAUwC4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-14T18:08:17.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\PlayerController.cs",
+              "ViewState": "AgIAAI4AAAAAAAAAAAAAAJ0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T19:12:34.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Documentation.txt",
               "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\COPY SPRIGHT\\Comic Battle Royale\\2D Character - Astronaut\\Documentation.txt",
               "RelativeDocumentMoniker": "Assets\\COPY SPRIGHT\\Comic Battle Royale\\2D Character - Astronaut\\Documentation.txt",
@@ -30,21 +60,7 @@
               "RelativeToolTip": "Assets\\COPY SPRIGHT\\Comic Battle Royale\\2D Character - Astronaut\\Documentation.txt",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-04-11T20:14:29.19Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerController.cs",
-              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\PlayerController.cs",
-              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\PlayerController.cs",
-              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\PlayerController.cs",
-              "RelativeToolTip": "Assets\\_Project\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-11T19:12:34.877Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-11T20:14:29.19Z"
             }
           ]
         }

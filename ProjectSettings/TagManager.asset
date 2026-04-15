@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Computer
+  - SpawnPoint
+  - HomeSpawn
   layers:
   - Default
   - TransparentFX
@@ -46,6 +49,9 @@ TagManager:
     locked: 0
   - name: Walls
     uniqueID: 1139660517
+    locked: 0
+  - name: Computer
+    uniqueID: 1092433031
     locked: 0
   - name: Player
     uniqueID: 2629023655
