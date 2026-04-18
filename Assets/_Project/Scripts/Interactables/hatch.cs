@@ -89,7 +89,7 @@ public class HatchWay : MonoBehaviour
         if (hatchAnimator != null)
         {
             Debug.Log("Перемещаемся на Nimbus!");
-            SceneManager.LoadScene("Nimbus");
+            GameManager.Instance.LoadNextScene("Nimbus");
         }
     }
 }

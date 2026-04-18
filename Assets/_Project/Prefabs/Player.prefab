@@ -181,6 +181,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 7
+  oxygenDepletionRate: 5
+  oxygenSlider: {fileID: 0}
 --- !u!95 &7819602443076234204
 Animator:
   serializedVersion: 7

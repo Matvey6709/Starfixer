@@ -325,11 +325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167515720}
   m_CullTransparentMesh: 1
---- !u!1 &210436081 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7832840114512198004, guid: 899e3da978853b54e8a643024516daa1, type: 3}
-  m_PrefabInstance: {fileID: 6617484545425358959}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &219197138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2017,20 +2012,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5034554522636547493, guid: 899e3da978853b54e8a643024516daa1, type: 3}
   m_PrefabInstance: {fileID: 6617484545425358959}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1204354057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 210436081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35a2bbb163bc4c849a88e6c4573d1b10, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerOxygen
-  oxygenDepletionRate: 5
-  oxygenSlider: {fileID: 0}
 --- !u!1 &1342415008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2043,7 +2024,6 @@ GameObject:
   - component: {fileID: 1342415009}
   - component: {fileID: 1342415012}
   - component: {fileID: 1342415011}
-  - component: {fileID: 1342415013}
   m_Layer: 0
   m_Name: OSIRIS
   m_TagString: Computer
@@ -2217,18 +2197,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.33221877, y: 0.14741477}
   m_EdgeRadius: 0
---- !u!114 &1342415013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1342415008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3621f7cc4562b244b885d353a7e80d8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ComputerOSIRIS
 --- !u!1 &1483107191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3883,10 +3851,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7832840114512198004, guid: 899e3da978853b54e8a643024516daa1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1204354057}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 899e3da978853b54e8a643024516daa1, type: 3}
 --- !u!1001 &8487479387686727147
 PrefabInstance:

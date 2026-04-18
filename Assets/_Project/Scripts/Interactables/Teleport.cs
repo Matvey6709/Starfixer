@@ -1,4 +1,4 @@
-﻿using Unity.VisualScripting.Antlr3.Runtime.Tree;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -35,6 +35,13 @@ public class TeleportToShip : MonoBehaviour
     private void GoHome()
     {
         Debug.Log("Перемещаемся на корабль!");
-        SceneManager.LoadScene("SpaceShip");
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.LoadNextScene("SpaceShip");
+        }
+        else
+        {
+            SceneManager.LoadScene("SpaceShip");
+        }
     }
 }
