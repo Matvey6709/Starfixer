@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7218854033476751688}
   - component: {fileID: 2641285021306903810}
   - component: {fileID: 7819602443076234204}
+  - component: {fileID: 9204274091369804610}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -181,8 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 7
-  oxygenDepletionRate: 5
-  oxygenSlider: {fileID: 0}
 --- !u!95 &7819602443076234204
 Animator:
   serializedVersion: 7
@@ -205,3 +204,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9204274091369804610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832840114512198004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a2bbb163bc4c849a88e6c4573d1b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerOxygen
+  oxygenDepletionRate: 5
+  oxygenSlider: {fileID: 5154302691499817143, guid: 941692832caed9c409e2e7eda7e68dcc, type: 3}
