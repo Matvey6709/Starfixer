@@ -46,7 +46,6 @@ public class DataManager : MonoBehaviour
             Debug.Log("Созданы новые данные игры (сохранений не найдено).");
         }
     }
-
     public void ResetData()
     {
         gameData = new GameData();

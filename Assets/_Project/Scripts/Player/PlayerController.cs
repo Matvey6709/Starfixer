@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Настройки Передвижения")]
     public float moveSpeed = 5f;
-
+    [Header("Инвентарь")]
+    public Inventory inventory;
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private Animator anim;
@@ -48,10 +49,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (isDead) return;
-
         HandleMovementInput();
     }
-
     private void HandleMovementInput() // Управление
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -85,6 +84,7 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
     }
 
+    
     void OnEnable() =>
         SceneManager.sceneLoaded += OnSceneLoaded;
 

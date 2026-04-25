@@ -3,26 +3,89 @@
 public class ChestInteraction : MonoBehaviour
 {
     private Animator chestAnimator;
-    private bool isPlayerInRange = false; // Состояние: рядом ли игрок
-    private bool isOpen = false; // Состояние: открыт ли уже сундук
+
+    private bool isPlayerInRange = false; // рядом ли игрок
+    public bool isOpen = false; // открыт ли сундук
+
+    [Header("UI")]
+    public GameObject inventoryUI; 
 
     void Start()
     {
         chestAnimator = GetComponent<Animator>();
+
         if (chestAnimator == null)
         {
             Debug.LogError("На объекте сундука не найден компонент Animator!");
         }
+
+        // Скрываем UI при старте
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("inventoryUI не назначен в Inspector!");
+        }
     }
 
-    // ТРИГГЕРЫ: просто фиксируют присутствие игрока
+    void Update()
+    {
+        // Нажатие E рядом с сундуком
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
+        {
+            if (!isOpen)
+                OpenChest();
+            else
+                CloseChest();
+        }
+    }
+
+    private void OpenChest()
+    {
+        isOpen = true;
+
+        // Анимация
+        if (chestAnimator != null)
+        {
+            chestAnimator.SetBool("IsOpen", true);
+        }
+
+        // ВКЛЮЧАЕМ UI
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(true);
+        }
+
+        Debug.Log("Сундук открыт");
+    }
+
+    private void CloseChest()
+    {
+        isOpen = false;
+
+        // Анимация
+        if (chestAnimator != null)
+        {
+            chestAnimator.SetBool("IsOpen", false);
+        }
+
+        // ВЫКЛЮЧАЕМ UI
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(false);
+        }
+
+        Debug.Log("Сундук закрыт");
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Убедитесь, что у вашего объекта Player стоит тег "Player"
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            Debug.Log("Вы рядом с сундуком. Нажмите E для открытия.");
+            Debug.Log("Нажми E, чтобы открыть сундук");
         }
     }
 
@@ -31,42 +94,10 @@ public class ChestInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
-            Debug.Log("Вы отошли от сундука.");
-        }
-    }
 
-    // ЛОГИКА ВЗАИМОДЕЙСТВИЯ (Ловим нажатие 'E')
-    void Update()
-    {
-        // Проверяем нажатие E каждый кадр, только если игрок рядом и сундук еще не открыт
-        if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            if (!isOpen)
-                OpenChest();
-            else CloseChest();
-        }
-    }
-
-    private void OpenChest()
-    {
-        if (chestAnimator != null)
-        {
-            isOpen = true; // Теперь он считается открытым
-            chestAnimator.SetBool("IsOpen", true); // Запускаем анимацию в Аниматоре
-            Debug.Log("Сундук склада открыт!");
-
-            // СЮДА мы в будущем добавим логику самого склада:
-            // Например, вызов окна инвентаря склада или передачу предметов Эрику
-        }
-    }
-
-    private void CloseChest()
-    {
-        if (chestAnimator != null)
-        {
-            isOpen = false; // Теперь он считается закрытым
-            chestAnimator.SetBool("IsOpen", false); // Запускаем анимацию в Аниматоре
-            Debug.Log("Сундук склада закрыт!");
+            // Авто-закрытие при уходе
+            if (isOpen)
+                CloseChest();
         }
     }
 }

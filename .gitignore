@@ -6,7 +6,7 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
-
+Library/
 # Игнорируем кэш памяти (на всякий случай)
 MemoryCaptures/
 
