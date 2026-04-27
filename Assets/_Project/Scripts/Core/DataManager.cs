@@ -37,11 +37,21 @@ public class DataManager : MonoBehaviour
         {
             string json = PlayerPrefs.GetString("SaveData");
             gameData = JsonUtility.FromJson<GameData>(json);
+
+            // 💥 ВАЖНО: защита от null
+            if (gameData == null)
+                gameData = new GameData();
+
+            if (gameData.inventory == null)
+                gameData.inventory = new System.Collections.Generic.List<Item>();
+
+            if (gameData.chestInventory == null)
+                gameData.chestInventory = new System.Collections.Generic.List<Item>();
+
             Debug.Log("Данные игрока загружены.");
         }
         else
         {
-            // Если сохранений нет, создаем новые стандартные данные
             gameData = new GameData();
             Debug.Log("Созданы новые данные игры (сохранений не найдено).");
         }
