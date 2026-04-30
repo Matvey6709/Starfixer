@@ -26,6 +26,8 @@ MemoryCaptures/
 *.opendb
 *.VC.db
 .vsconfig
+.vs
+.vscode
 
 # Игнорируем системные файлы ОС (Windows / Mac)
 .DS_Store
