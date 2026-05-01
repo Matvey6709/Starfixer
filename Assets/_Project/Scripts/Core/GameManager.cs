@@ -5,6 +5,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    public enum SpawnType { Default, Checkpoint }
+
+    // Выставляется перед LoadScene и сбрасывается в OnSceneLoaded после использования.
+    public SpawnType pendingSpawnType = SpawnType.Default;
+
     private void Awake()
     {
         if (Instance == null)
@@ -33,7 +38,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // Метод для возрождения на конкретной сцене по имени
+    // Возрождение после смерти — сцена определяется вызывающей стороной по чекпоинту
     public void RespawnOnScene(string sceneName)
     {
         Debug.Log($"Возрождение на сцене {sceneName}...");
@@ -41,42 +46,37 @@ public class GameManager : MonoBehaviour
         if (DataManager.Instance != null)
         {
             DataManager.Instance.gameData.currentOxygen = DataManager.Instance.gameData.maxOxygen;
-            DataManager.Instance.gameData.lastSavedScene = sceneName;
             DataManager.Instance.SaveData();
         }
 
         SceneManager.LoadScene(sceneName);
     }
 
-    // Универсальный метод для загрузки новой сцены
+    // Переход на новую сцену (люк, телепорт и т.д.)
     public void LoadNextScene(string sceneName)
     {
         Debug.Log($"Переход на сцену: {sceneName}");
-        
+
         if (DataManager.Instance != null)
-        {
-           // Обновляем текущую сохраненную сцену
-            DataManager.Instance.gameData.lastSavedScene = sceneName;
-            
-            // Обязательно сохраняем данные при переходе между сценами
             DataManager.Instance.SaveData();
-        }
-        
-      SceneManager.LoadScene(sceneName);
+
+        SceneManager.LoadScene(sceneName);
     }
 
-    // Вызови этот метод (например, с кнопки главного меню), чтобы продолжить игру(метод)
+    // Продолжить игру: если есть чекпоинт — на сцену чекпоинта, иначе — SpaceShip
     public void ContinueGame()
     {
-        if (DataManager.Instance != null && !string.IsNullOrEmpty(DataManager.Instance.gameData.lastSavedScene))
+        if (DataManager.Instance != null && DataManager.Instance.gameData.hasCheckpoint)
         {
-            Debug.Log($"Продолжаем игру со сцены: {DataManager.Instance.gameData.lastSavedScene}");
-            SceneManager.LoadScene(DataManager.Instance.gameData.lastSavedScene);
+            pendingSpawnType = SpawnType.Checkpoint;
+            Debug.Log($"Продолжаем игру: возврат к чекпоинту на {DataManager.Instance.gameData.checkpointScene}.");
+            SceneManager.LoadScene(DataManager.Instance.gameData.checkpointScene);
         }
         else
         {
-            Debug.LogWarning("Сохранений нет. Запускаем новую игру (здесь впиши имя своей первой сцены)!");
-            // SceneManager.LoadScene("НазваниеТвоейПервойСценыКлассическое");
+            pendingSpawnType = SpawnType.Default;
+            Debug.Log("Сохранений нет — начинаем с корабля.");
+            SceneManager.LoadScene("SpaceShip");
         }
     }
 }

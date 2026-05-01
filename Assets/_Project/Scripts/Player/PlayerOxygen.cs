@@ -73,23 +73,43 @@ public class PlayerOxygen : MonoBehaviour
         }
     }
 
-    private void DieFromSuffocation() // Вызывается, если игрок погиб
+    private bool isDying = false;
+
+    private void DieFromSuffocation()
     {
+        if (isDying) return;
+        isDying = true;
+
         if (PlayerController.Instance != null)
-            PlayerController.Instance.SetDeadState(true); // Блокируем управление
+            PlayerController.Instance.SetDeadState(true);
 
         Debug.Log("Вам не хватило кислорода... Перезапуск уровня.");
 
-        // Оригинальная логика: почти сразу сбрасывался стейт смерти
-        if (PlayerController.Instance != null)
-            PlayerController.Instance.SetDeadState(false);
+        var data = DataManager.Instance?.gameData;
+        bool validCheckpoint = data != null &&
+                               data.hasCheckpoint &&
+                               !string.IsNullOrEmpty(data.checkpointScene);
 
-        // Используем GameManager для перезапуска сцены (он также сохранит данные)
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.RespawnOnScene("SpaceShip");
+            if (validCheckpoint)
+            {
+                // Откат инвентаря к снапшоту чекпоинта (глубокая копия)
+                data.inventory.Clear();
+                data.inventory.AddRange(data.checkpointInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount }));
+                data.chestInventory.Clear();
+                data.chestInventory.AddRange(data.checkpointChestInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount }));
+
+                GameManager.Instance.pendingSpawnType = GameManager.SpawnType.Checkpoint;
+                GameManager.Instance.RespawnOnScene(data.checkpointScene);
+            }
+            else
+            {
+                GameManager.Instance.pendingSpawnType = GameManager.SpawnType.Default;
+                GameManager.Instance.RespawnOnScene("SpaceShip");
+            }
         }
-        else 
+        else
         {
             SceneManager.LoadScene("SpaceShip");
         }
@@ -103,10 +123,11 @@ public class PlayerOxygen : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Автоматически находим слайдер на новой сцене
+        isDying = false;
+        if (PlayerController.Instance != null)
+            PlayerController.Instance.SetDeadState(false);
+
         FindOxygenSlider();
-        
-        // Обновляем UI на новой сцене с актуальными данными
         UpdateUI();
     }
 }

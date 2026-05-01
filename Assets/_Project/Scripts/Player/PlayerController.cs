@@ -93,29 +93,40 @@ public class PlayerController : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        var vcam = Object.FindAnyObjectByType<CinemachineCamera>(FindObjectsInactive.Include);
+        if (this != Instance) return;
 
+        var vcam = Object.FindAnyObjectByType<CinemachineCamera>(FindObjectsInactive.Include);
         if (vcam != null)
         {
             vcam.Follow = transform;
             vcam.LookAt = transform;
         }
 
-        if (scene.name == "Nimbus") 
+        var spawnType = GameManager.Instance?.pendingSpawnType ?? GameManager.SpawnType.Default;
+        if (GameManager.Instance != null)
+            GameManager.Instance.pendingSpawnType = GameManager.SpawnType.Default;
+
+        if (spawnType == GameManager.SpawnType.Checkpoint)
         {
-            GameObject spawnPoint = GameObject.FindWithTag("SpawnPoint");
-            if (spawnPoint != null)
+            var cpData = DataManager.Instance?.gameData;
+            if (cpData != null && cpData.hasCheckpoint)
             {
-                transform.position = spawnPoint.transform.position;
+                transform.position = cpData.checkpointPosition;
+                return;
             }
+        }
+
+        // Default: SpawnPoint в Nimbus, HomeSpawn в SpaceShip
+        if (scene.name == "Nimbus")
+        {
+            var sp = GameObject.FindWithTag("SpawnPoint");
+            if (sp != null) transform.position = sp.transform.position;
         }
         else if (scene.name == "SpaceShip")
         {
-            GameObject homeSpawm = GameObject.FindWithTag("HomeSpawn");
-            if (homeSpawm != null)
-            {
-                transform.position = homeSpawm.transform.position;
-            }
+            var hs = GameObject.FindWithTag("HomeSpawn");
+            if (hs != null) transform.position = hs.transform.position;
+            else transform.position = new Vector2(-0.51f, 1.1492f);
         }
     }
 }

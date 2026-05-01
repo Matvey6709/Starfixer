@@ -78,6 +78,18 @@ public class OxygenKapsula : MonoBehaviour
                 {
                     playerOxygen.RefillOxygen();
                     Debug.Log("Запас кислорода пополнен!");
+
+                    if (DataManager.Instance != null)
+                    {
+                        var gd = DataManager.Instance.gameData;
+                        gd.hasCheckpoint = true;
+                        gd.checkpointScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+                        gd.checkpointPosition = PlayerController.Instance.transform.position;
+                        gd.checkpointInventory = gd.inventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
+                        gd.checkpointChestInventory = gd.chestInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
+                        DataManager.Instance.SaveData();
+                        Debug.Log($"Чекпоинт сохранён: сцена={DataManager.Instance.gameData.checkpointScene}, позиция={transform.position}");
+                    }
                 }
                 else
                 {

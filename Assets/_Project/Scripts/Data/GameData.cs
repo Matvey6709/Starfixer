@@ -8,8 +8,12 @@ public class GameData
     public float maxOxygen = 100f;
     public float currentOxygen;
 
-    [Header("Сохраненный прогресс")]
-    public string lastSavedScene = "";
+    [Header("Чекпоинт (последняя капсула)")]
+    public bool hasCheckpoint = false;
+    public string checkpointScene = "";
+    public Vector2 checkpointPosition;
+    public List<Item> checkpointInventory = new List<Item>();
+    public List<Item> checkpointChestInventory = new List<Item>();
 
 
     [Header("Инвентарь игрока")]
@@ -27,8 +31,7 @@ public class GameData
     {
         // Инициализация при начале новой игры
         currentOxygen = maxOxygen;
-        lastSavedScene = ""; // По умолчанию пусто
-        inventory = new List<Item>(); //создаем пустые инвентари
+        inventory = new List<Item>();
         chestInventory = new List<Item>();
     }
 }

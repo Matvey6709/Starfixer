@@ -22,18 +22,16 @@ public class Inventory : MonoBehaviour
             if (item.id == newItem.id)
             {
                 item.amount += newItem.amount;
-                DataManager.Instance.SaveData();
                 return;
             }
         }
 
         items.Add(newItem);
-        DataManager.Instance.SaveData();
     }
+
     public void Clear()
     {
         items.Clear();
         Debug.Log("Инвентарь очищен");
-        DataManager.Instance.SaveData();
     }
 }

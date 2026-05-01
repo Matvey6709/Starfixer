@@ -28,6 +28,9 @@ MemoryCaptures/
 .vsconfig
 .vs
 .vscode
+.claude
+.mcp.json
+DOCUMENTATION.md
 
 # Игнорируем системные файлы ОС (Windows / Mac)
 .DS_Store

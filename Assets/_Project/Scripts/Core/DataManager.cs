@@ -23,9 +23,18 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
-        // Сериализуем наш объект в строку формата JSON
+        // На диск инвентарь пишется только из снапшота чекпоинта,
+        // чтобы предметы, поднятые после чекпоинта, не попадали в сохранение.
+        var liveInventory      = gameData.inventory;
+        var liveChestInventory = gameData.chestInventory;
+        gameData.inventory      = gameData.checkpointInventory;
+        gameData.chestInventory = gameData.checkpointChestInventory;
+
         string json = JsonUtility.ToJson(gameData);
-        // Сохраняем в PlayerPrefs устройства
+
+        gameData.inventory      = liveInventory;
+        gameData.chestInventory = liveChestInventory;
+
         PlayerPrefs.SetString("SaveData", json);
         PlayerPrefs.Save();
         Debug.Log("Данные игрока успешно сохранены!");
