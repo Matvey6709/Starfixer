@@ -1,9 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Matve\\Starfixer\\",
+  "WorkspaceRootPath": "C:\\Users\\647\\Starfixer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\matve\\starfixer\\assets\\_project\\scripts\\data\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\player\\playeroxygen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\player\\playeroxygen.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\interactables\\arenaenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\interactables\\arenaenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\interactables\\enterdump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\interactables\\enterdump.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\interactables\\bunkersdoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\interactables\\bunkersdoor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\interactables\\hatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\interactables\\hatch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|c:\\users\\647\\starfixer\\assets\\_project\\scripts\\data\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B4CD19DA-EE08-5225-FB19-1D0DFA4113DD}|Assembly-CSharp.csproj|solutionrelative:assets\\_project\\scripts\\data\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,23 +38,93 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{93c5e7ad-af06-49e6-a756-b8f3eaca790d}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ArenaEnter.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\ArenaEnter.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Interactables\\ArenaEnter.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\ArenaEnter.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Interactables\\ArenaEnter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T16:26:35.474Z",
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BunkersDoor.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\BunkersDoor.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Interactables\\BunkersDoor.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\BunkersDoor.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Interactables\\BunkersDoor.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAswEMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T16:06:24.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EnterDump.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\EnterDump.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Interactables\\EnterDump.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\EnterDump.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Interactables\\EnterDump.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T14:34:22.086Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerOxygen.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Player\\PlayerOxygen.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Player\\PlayerOxygen.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Player\\PlayerOxygen.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Player\\PlayerOxygen.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwCAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T15:11:33.357Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PlayerController.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Player\\PlayerController.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Player\\PlayerController.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Player\\PlayerController.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Player\\PlayerController.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAUwGUAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T14:36:05.947Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "hatch.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\hatch.cs",
+              "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Interactables\\hatch.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Interactables\\hatch.cs",
+              "RelativeToolTip": "Assets\\_Project\\Scripts\\Interactables\\hatch.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAwwF8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T14:24:57.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "GameData.cs",
-              "DocumentMoniker": "C:\\Users\\Matve\\Starfixer\\Assets\\_Project\\Scripts\\Data\\GameData.cs",
+              "DocumentMoniker": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Data\\GameData.cs",
               "RelativeDocumentMoniker": "Assets\\_Project\\Scripts\\Data\\GameData.cs",
-              "ToolTip": "C:\\Users\\Matve\\Starfixer\\Assets\\_Project\\Scripts\\Data\\GameData.cs",
+              "ToolTip": "C:\\Users\\647\\Starfixer\\Assets\\_Project\\Scripts\\Data\\GameData.cs",
               "RelativeToolTip": "Assets\\_Project\\Scripts\\Data\\GameData.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

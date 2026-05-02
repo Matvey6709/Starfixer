@@ -8,6 +8,7 @@ TagManager:
   - SpawnPoint
   - HomeSpawn
   - OxygenSlider
+  - EnterDump
   layers:
   - Default
   - TransparentFX
@@ -15,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Object
   - 
   - 
   - 
@@ -51,11 +52,17 @@ TagManager:
   - name: Walls
     uniqueID: 1139660517
     locked: 0
-  - name: Computer
+  - name: object 1
+    uniqueID: 217595985
+    locked: 0
+  - name: Objects
     uniqueID: 1092433031
     locked: 0
   - name: Player
     uniqueID: 2629023655
+    locked: 0
+  - name: object 2
+    uniqueID: 2125973877
     locked: 0
   m_RenderingLayers:
   - Default

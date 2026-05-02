@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerOxygen : MonoBehaviour
 {
@@ -25,8 +26,10 @@ public class PlayerOxygen : MonoBehaviour
         // Убедимся, что DataManager существует на сцене
         if (DataManager.Instance == null) return;
 
+        string currentScene = SceneManager.GetActiveScene().name;
+
         // Проверяем, на какой мы сцене. Если это "Nimbus", тратим воздух
-        if (SceneManager.GetActiveScene().name == "Nimbus")
+        if (currentScene == "Nimbus" || currentScene == "Dump")
         {
             if (DataManager.Instance.gameData.currentOxygen > 0)
             {
@@ -80,8 +83,27 @@ public class PlayerOxygen : MonoBehaviour
         if (isDying) return;
         isDying = true;
 
+        // Запускаем последовательность смерти
+        StartCoroutine(DeathSequence());
+    }
+
+    private IEnumerator DeathSequence()
+    {
         if (PlayerController.Instance != null)
+        {
             PlayerController.Instance.SetDeadState(true);
+
+            Animator anim = PlayerController.Instance.GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.SetTrigger("Die");
+            }
+        }
+
+        Debug.Log("Проигрывание анимации смерти...");
+
+        // 3. Ждем завершения анимации (замените 2.0f на длительность вашей анимации)
+        yield return new WaitForSeconds(2.0f);
 
         Debug.Log("Вам не хватило кислорода... Перезапуск уровня.");
 
@@ -125,8 +147,19 @@ public class PlayerOxygen : MonoBehaviour
     {
         isDying = false;
         if (PlayerController.Instance != null)
+        {
             PlayerController.Instance.SetDeadState(false);
+            Animator anim = PlayerController.Instance.GetComponent<Animator>();
+            if (anim != null)
+            {
+                anim.Play("idle_down");
 
+                anim.SetFloat("Horizontal", 0);
+                anim.SetFloat("Vertical", 0);
+                anim.SetBool("IsWalking", false);
+            }
+        }
+            
         FindOxygenSlider();
         UpdateUI();
     }

@@ -99,7 +99,12 @@ public class PlayerController : MonoBehaviour
         if (vcam != null)
         {
             vcam.Follow = transform;
-            vcam.LookAt = transform;
+            vcam.LookAt = transform; 
+            Debug.Log($"Камера найдена на сцене {scene.name}, цель установлена: {transform.name}");
+        }
+        else
+        {
+            Debug.LogWarning("CinemachineCamera НЕ найдена на новой сцене!");
         }
 
         var spawnType = GameManager.Instance?.pendingSpawnType ?? GameManager.SpawnType.Default;
@@ -127,6 +132,11 @@ public class PlayerController : MonoBehaviour
             var hs = GameObject.FindWithTag("HomeSpawn");
             if (hs != null) transform.position = hs.transform.position;
             else transform.position = new Vector2(-0.51f, 1.1492f);
+        }
+        else if (scene.name == "Dump")
+        {
+            var sp = GameObject.FindWithTag("EnterDump"); 
+            if (sp != null) transform.position = sp.transform.position;
         }
     }
 }
