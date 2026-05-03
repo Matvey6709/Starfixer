@@ -9,6 +9,7 @@ TagManager:
   - HomeSpawn
   - OxygenSlider
   - EnterDump
+  - ExitDump
   layers:
   - Default
   - TransparentFX

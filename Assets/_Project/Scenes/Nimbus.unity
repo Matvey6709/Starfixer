@@ -744,7 +744,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6116270251506603553, guid: 49056194b1e885b4dafad25210c449ae, type: 3}
       propertyPath: m_Name
-      value: Canvas 1
+      value: 'Canvas '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1895,7 +1895,7 @@ GameObject:
   - component: {fileID: 1121451508}
   m_Layer: 0
   m_Name: dump
-  m_TagString: Untagged
+  m_TagString: ExitDump
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

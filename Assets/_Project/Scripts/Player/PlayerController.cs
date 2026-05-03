@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private bool isFacingRight = false;
     private bool isDead = false;
-
+    private static string lastSceneName;
     public bool IsDead => isDead;
 
     public void SetDeadState(bool state)
@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
             if (cpData != null && cpData.hasCheckpoint)
             {
                 transform.position = cpData.checkpointPosition;
+                lastSceneName = scene.name;
                 return;
             }
         }
@@ -124,8 +125,16 @@ public class PlayerController : MonoBehaviour
         // Default: SpawnPoint в Nimbus, HomeSpawn в SpaceShip
         if (scene.name == "Nimbus")
         {
-            var sp = GameObject.FindWithTag("SpawnPoint");
-            if (sp != null) transform.position = sp.transform.position;
+            if (lastSceneName == "Dump")
+            {
+                var exitSp = GameObject.FindWithTag("ExitDump");
+                if (exitSp != null) transform.position = exitSp.transform.position;
+            }
+            else 
+            {
+                var sp = GameObject.FindWithTag("SpawnPoint");
+                if (sp != null) transform.position = sp.transform.position;
+            }
         }
         else if (scene.name == "SpaceShip")
         {
@@ -138,5 +147,7 @@ public class PlayerController : MonoBehaviour
             var sp = GameObject.FindWithTag("EnterDump"); 
             if (sp != null) transform.position = sp.transform.position;
         }
+
+        lastSceneName = scene.name;
     }
 }
