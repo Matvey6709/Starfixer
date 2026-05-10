@@ -1,83 +1,102 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class InventorySlot : MonoBehaviour
 {
-    [Header("Настройки")]
-    public bool isChestSlot; // это слот сундука или игрока
+    [Header("Настройки слота")]
+    [Tooltip("ID должен совпадать с ID предмета в ItemPickup (например: patch, coil, metal)")]
+    public string itemID = "metal"; 
+    
+    [Tooltip("Отображаемое имя предмета (используется при создании новой записи)")]
+    public string itemName = "Metal"; 
+    
+    [Tooltip("Отметьте, если этот слот находится внутри панели СУНДУКА")]
+    public bool isChestSlot;
 
     [Header("Ссылка на сундук")]
-    public ChestInteraction chest; // сюда перетаскиваем сундук
+    [Tooltip("Перетащите сюда объект сундука со сцены (у которого скрипт ChestInteraction)")]
+    public ChestInteraction chest;
 
+    /// Метод вызывается при нажатии на кнопку (белый квадрат) в UI
     public void OnClick()
     {
-        // ❗ если есть сундук и он закрыт — ничего не делаем
-        if (chest != null && !chest.isOpen)
+        // Проверка: если сундук назначен, но закрыт — игнорируем клик
+        if (chest != null && !chest.isOpen) return;
+
+        // Проверка: есть ли доступ к данным
+        if (DataManager.Instance == null || DataManager.Instance.gameData == null)
+        {
+            Debug.LogError("InventorySlot: DataManager или GameData не найдены!");
             return;
+        }
 
         var data = DataManager.Instance.gameData;
 
-        // 👉 если это слот сундука → забираем из сундука
         if (isChestSlot)
         {
-            if (GetAmount(data.chestInventory) > 0)
+            // ЗАБИРАЕМ ИЗ СУНДУКА -> В ИНВЕНТАРЬ ИГРОКА
+            if (HasItem(data.chestInventory))
             {
-                RemoveItem(data.chestInventory);
-                AddItem(data.inventory);
+                TransferItem(data.chestInventory, data.inventory);
             }
         }
-        // 👉 если это слот игрока → кладём в сундук
         else
         {
-            if (GetAmount(data.inventory) > 0)
+            // КЛАДЕМ ИЗ ИНВЕНТАРЯ -> В СУНДУК
+            if (HasItem(data.inventory))
             {
-                RemoveItem(data.inventory);
-                AddItem(data.chestInventory);
+                TransferItem(data.inventory, data.chestInventory);
             }
         }
     }
 
-    // 🔍 получить количество металла
-    int GetAmount(System.Collections.Generic.List<Item> list)
+    // Проверяет, есть ли хотя бы 1 такой предмет в списке
+    private bool HasItem(List<Item> sourceList)
     {
-        foreach (var item in list)
+        foreach (var item in sourceList)
         {
-            if (item.id == "metal")
-                return item.amount;
+            if (item.id == itemID && item.amount > 0) return true;
         }
-        return 0;
+        return false;
     }
 
-    // ➖ убрать 1 предмет
-    void RemoveItem(System.Collections.Generic.List<Item> list)
+    // Логика переноса 1 единицы предмета
+    private void TransferItem(List<Item> from, List<Item> to)
     {
-        foreach (var item in list)
+        // 1. Убираем из источника
+        for (int i = 0; i < from.Count; i++)
         {
-            if (item.id == "metal")
+            if (from[i].id == itemID)
             {
-                item.amount--;
-                return;
+                from[i].amount--;
+                
+                // Если стало 0 — полностью удаляем из списка данных
+                if (from[i].amount <= 0)
+                {
+                    from.RemoveAt(i);
+                }
+                break;
             }
         }
-    }
 
-    // ➕ добавить 1 предмет
-    void AddItem(System.Collections.Generic.List<Item> list)
-    {
-        foreach (var item in list)
+        // 2. Добавляем в цель
+        bool foundInTarget = false;
+        foreach (var item in to)
         {
-            if (item.id == "metal")
+            if (item.id == itemID)
             {
                 item.amount++;
-                return;
+                foundInTarget = true;
+                break;
             }
         }
 
-        // если предмета нет — создаём
-        Item newItem = new Item();
-        newItem.id = "metal";
-        newItem.itemName = "Metal";
-        newItem.amount = 1;
-
-        list.Add(newItem);
+        // Если в целевом списке такого предмета еще не было — создаем новую запись
+        if (!foundInTarget)
+        {
+            to.Add(new Item { id = itemID, itemName = itemName, amount = 1 });
+        }
+        
+        Debug.Log($"Предмет {itemID} перенесен. Осталось в источнике: {from.Count}");
     }
 }

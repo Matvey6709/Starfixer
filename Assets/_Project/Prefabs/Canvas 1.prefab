@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1697918710521191595}
   - component: {fileID: 2877904066292727315}
   - component: {fileID: 4017565500377018206}
-  - component: {fileID: 8860689856039002129}
   - component: {fileID: 6590018947372161982}
   - component: {fileID: 8427281416545148267}
+  - component: {fileID: 5607433636855252662}
   m_Layer: 5
   m_Name: MetalIcon
   m_TagString: Untagged
@@ -79,20 +79,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8860689856039002129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 90923145281586664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf7a0a3465ba402385ba2a76fe2944f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MetalUI
-  iconObject: {fileID: 90923145281586664}
-  countText: {fileID: 7352084076395858878}
 --- !u!114 &6590018947372161982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8504914a0d9504feaa1557c3f715ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  itemID: patch
+  itemName: Patch
   isChestSlot: 0
   chest: {fileID: 0}
 --- !u!114 &8427281416545148267
@@ -163,6 +151,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5607433636855252662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90923145281586664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e42513485f494e64876146cf779938d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDisplayUI
+  itemID: patch
+  isChestUI: 0
+  iconObject: {fileID: 90923145281586664}
+  countText: {fileID: 7352084076395858878}
 --- !u!1 &1151380180608255878
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +732,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8504914a0d9504feaa1557c3f715ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  itemID: metal
+  itemName: Metal
   isChestSlot: 1
   chest: {fileID: 0}
 --- !u!114 &7692857531370391418
@@ -990,7 +996,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8125611347946360629}
   - component: {fileID: 1791637246975358945}
-  - component: {fileID: 557323389229544718}
   m_Layer: 5
   m_Name: PlayerUI
   m_TagString: Untagged
@@ -1026,20 +1031,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7009872225294265993}
   m_CullTransparentMesh: 1
---- !u!114 &557323389229544718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7009872225294265993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf7a0a3465ba402385ba2a76fe2944f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MetalUI
-  iconObject: {fileID: 90923145281586664}
-  countText: {fileID: 7352084076395858878}
 --- !u!1001 &3689227857852711104
 PrefabInstance:
   m_ObjectHideFlags: 0
