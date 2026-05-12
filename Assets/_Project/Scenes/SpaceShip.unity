@@ -3383,30 +3383,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7729467045854745163, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
       propertyPath: chest
       value: 
