@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3994190357254631108}
   - component: {fileID: 7959021825364022251}
   - component: {fileID: 3672696621908608843}
+  - component: {fileID: 7470161366609224628}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -48,6 +49,13 @@ MonoBehaviour:
   gameData:
     maxOxygen: 100
     currentOxygen: 100
+    hasCheckpoint: 0
+    checkpointScene: 
+    checkpointPosition: {x: 0, y: 0}
+    checkpointInventory: []
+    checkpointChestInventory: []
+    inventory: []
+    chestInventory: []
 --- !u!114 &3672696621908608843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +68,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20b764d6b9a0a284896f3d8503d95bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  pendingSpawnType: 0
+--- !u!114 &7470161366609224628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818199292637517692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc60ad824af24c4a9d55fa5f695620d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LocalQuestManager
+  questTextUI: {fileID: 0}

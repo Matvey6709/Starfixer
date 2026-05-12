@@ -5,7 +5,7 @@ public class Inventory : MonoBehaviour
 {
     public bool isChest = false;
 
-    private List<Item> items;
+    public List<Item> items;
 
     void Start()
     {
