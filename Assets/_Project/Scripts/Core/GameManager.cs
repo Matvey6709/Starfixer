@@ -7,7 +7,6 @@ public class GameManager : MonoBehaviour
 
     public enum SpawnType { Default, Checkpoint }
 
-    // Выставляется перед LoadScene и сбрасывается в OnSceneLoaded после использования.
     public SpawnType pendingSpawnType = SpawnType.Default;
 
     private void Awake()
@@ -23,22 +22,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Универсальный метод перезапуска текущей сцены
     public void RestartScene()
     {
         Debug.Log("Перезапуск текущей сцены...");
 
-        // При перезапуске из-за смерти восстанавливаем игроку воздух:
         if (DataManager.Instance != null)
         {
             DataManager.Instance.gameData.currentOxygen = DataManager.Instance.gameData.maxOxygen;
-            DataManager.Instance.SaveData(); // Сохраняем это изменение
+            DataManager.Instance.RestoreInventoryFromCheckpoint();
+            DataManager.Instance.SaveData();
         }
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    // Возрождение после смерти — сцена определяется вызывающей стороной по чекпоинту
     public void RespawnOnScene(string sceneName)
     {
         Debug.Log($"Возрождение на сцене {sceneName}...");
@@ -46,13 +43,13 @@ public class GameManager : MonoBehaviour
         if (DataManager.Instance != null)
         {
             DataManager.Instance.gameData.currentOxygen = DataManager.Instance.gameData.maxOxygen;
+            DataManager.Instance.RestoreInventoryFromCheckpoint();
             DataManager.Instance.SaveData();
         }
 
         SceneManager.LoadScene(sceneName);
     }
 
-    // Переход на новую сцену (люк, телепорт и т.д.)
     public void LoadNextScene(string sceneName)
     {
         Debug.Log($"Переход на сцену: {sceneName}");
@@ -63,7 +60,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    // Продолжить игру: если есть чекпоинт — на сцену чекпоинта, иначе — SpaceShip
     public void ContinueGame()
     {
         if (DataManager.Instance != null && DataManager.Instance.gameData.hasCheckpoint)

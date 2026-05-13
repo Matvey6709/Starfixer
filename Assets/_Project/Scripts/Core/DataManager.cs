@@ -5,7 +5,7 @@ public class DataManager : MonoBehaviour
     public static DataManager Instance { get; private set; }
 
     [Header("Текущие данные")]
-    public GameData gameData; 
+    public GameData gameData;
 
     private void Awake()
     {
@@ -13,7 +13,7 @@ public class DataManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadData(); // Загружаем данные при самом первом запуске
+            LoadData();
         }
         else if (Instance != this)
         {
@@ -23,8 +23,6 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
-        // На диск инвентарь пишется только из снапшота чекпоинта,
-        // чтобы предметы, поднятые после чекпоинта, не попадали в сохранение.
         var liveInventory      = gameData.inventory;
         var liveChestInventory = gameData.chestInventory;
         gameData.inventory      = gameData.checkpointInventory;
@@ -47,7 +45,6 @@ public class DataManager : MonoBehaviour
             string json = PlayerPrefs.GetString("SaveData");
             gameData = JsonUtility.FromJson<GameData>(json);
 
-            // 💥 ВАЖНО: защита от null
             if (gameData == null)
                 gameData = new GameData();
 
@@ -65,6 +62,22 @@ public class DataManager : MonoBehaviour
             Debug.Log("Созданы новые данные игры (сохранений не найдено).");
         }
     }
+
+    public void RestoreInventoryFromCheckpoint()
+    {
+        gameData.inventory = DeepCopyItems(gameData.checkpointInventory);
+        gameData.chestInventory = DeepCopyItems(gameData.checkpointChestInventory);
+        Debug.Log("Инвентарь откатан до чекпоинта.");
+    }
+
+    private System.Collections.Generic.List<Item> DeepCopyItems(System.Collections.Generic.List<Item> source)
+    {
+        var copy = new System.Collections.Generic.List<Item>();
+        foreach (var item in source)
+            copy.Add(new Item { id = item.id, itemName = item.itemName, amount = item.amount });
+        return copy;
+    }
+
     public void ResetData()
     {
         gameData = new GameData();
