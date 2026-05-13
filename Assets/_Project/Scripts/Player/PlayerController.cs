@@ -135,10 +135,15 @@ public class PlayerController : MonoBehaviour
                 var exitSp = GameObject.FindWithTag("ExitDump");
                 if (exitSp != null) transform.position = exitSp.transform.position;
             }
-            else 
+            else if (lastSceneName == "SpaceShip")
             {
                 var sp = GameObject.FindWithTag("SpawnPoint");
                 if (sp != null) transform.position = sp.transform.position;
+            }
+            else if (lastSceneName == "Maze")
+            {
+                var mazesp = GameObject.FindWithTag("exitMaze");
+                if (mazesp != null) transform.position = mazesp.transform.position + new Vector3(0, -5f, 0);
             }
         }
         else if (scene.name == "SpaceShip")
@@ -149,8 +154,13 @@ public class PlayerController : MonoBehaviour
         }
         else if (scene.name == "Dump")
         {
-            var sp = GameObject.FindWithTag("EnterDump"); 
-            if (sp != null) transform.position = sp.transform.position;
+            var ed = GameObject.FindWithTag("EnterDump"); 
+            if (ed != null) transform.position = ed.transform.position;
+        }
+        else if (scene.name == "Maze")
+        {
+            var em = GameObject.FindWithTag("EnterMaze");
+            if (em != null) transform.position = em.transform.position;
         }
 
         lastSceneName = scene.name;
