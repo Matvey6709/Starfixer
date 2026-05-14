@@ -28,8 +28,7 @@ public class GameManager : MonoBehaviour
 
         if (DataManager.Instance != null)
         {
-            DataManager.Instance.gameData.currentOxygen = DataManager.Instance.gameData.maxOxygen;
-            DataManager.Instance.RestoreInventoryFromCheckpoint();
+            DataManager.Instance.RestoreFromCheckpoint();
             DataManager.Instance.SaveData();
         }
 
@@ -42,8 +41,7 @@ public class GameManager : MonoBehaviour
 
         if (DataManager.Instance != null)
         {
-            DataManager.Instance.gameData.currentOxygen = DataManager.Instance.gameData.maxOxygen;
-            DataManager.Instance.RestoreInventoryFromCheckpoint();
+            DataManager.Instance.RestoreFromCheckpoint();
             DataManager.Instance.SaveData();
         }
 

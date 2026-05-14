@@ -3335,70 +3335,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1794284384340669377, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 2968970575089907032, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 3421683613477809308, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421683613477809308, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3421683613477809308, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4268439797283749693, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 5596382587893614226, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 6170491316092420466, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 6235203624020000336, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 6570959847894575741, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 6774344488793367412, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774344488793367412, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7729467045854745163, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
-    - target: {fileID: 7842464664951098134, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
     - target: {fileID: 7937423179920521042, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 8092288516627390246, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: chest
-      value: 
-      objectReference: {fileID: 527891044}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

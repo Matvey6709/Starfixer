@@ -23,15 +23,21 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
+        // Временно подставляем checkpoint-значения, чтобы на диск шло
+        // только то состояние, которое было на последней капсуле
         var liveInventory      = gameData.inventory;
         var liveChestInventory = gameData.chestInventory;
+        var liveOxygen         = gameData.currentOxygen;
+
         gameData.inventory      = gameData.checkpointInventory;
         gameData.chestInventory = gameData.checkpointChestInventory;
+        gameData.currentOxygen  = gameData.checkpointOxygen;
 
         string json = JsonUtility.ToJson(gameData);
 
         gameData.inventory      = liveInventory;
         gameData.chestInventory = liveChestInventory;
+        gameData.currentOxygen  = liveOxygen;
 
         PlayerPrefs.SetString("SaveData", json);
         PlayerPrefs.Save();
@@ -54,6 +60,16 @@ public class DataManager : MonoBehaviour
             if (gameData.chestInventory == null)
                 gameData.chestInventory = new System.Collections.Generic.List<Item>();
 
+            if (gameData.checkpointInventory == null)
+                gameData.checkpointInventory = new System.Collections.Generic.List<Item>();
+
+            if (gameData.checkpointChestInventory == null)
+                gameData.checkpointChestInventory = new System.Collections.Generic.List<Item>();
+
+            // Старые сохранения не имели checkpointOxygen — считаем максимум
+            if (gameData.checkpointOxygen <= 0)
+                gameData.checkpointOxygen = gameData.maxOxygen;
+
             Debug.Log("Данные игрока загружены.");
         }
         else
@@ -63,19 +79,26 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void RestoreInventoryFromCheckpoint()
+    public void RestoreFromCheckpoint()
     {
-        gameData.inventory = DeepCopyItems(gameData.checkpointInventory);
-        gameData.chestInventory = DeepCopyItems(gameData.checkpointChestInventory);
-        Debug.Log("Инвентарь откатан до чекпоинта.");
+        // Очищаем и заполняем существующие списки, не заменяя ссылки —
+        // иначе Inventory.items потеряет связь с gameData.inventory
+        RefillList(gameData.inventory, gameData.checkpointInventory);
+        RefillList(gameData.chestInventory, gameData.checkpointChestInventory);
+        gameData.currentOxygen = gameData.checkpointOxygen > 0
+            ? gameData.checkpointOxygen
+            : gameData.maxOxygen;
+        Debug.Log("Данные откатаны до чекпоинта.");
     }
 
-    private System.Collections.Generic.List<Item> DeepCopyItems(System.Collections.Generic.List<Item> source)
+    // Оставлен для обратной совместимости
+    public void RestoreInventoryFromCheckpoint() => RestoreFromCheckpoint();
+
+    private void RefillList(System.Collections.Generic.List<Item> target, System.Collections.Generic.List<Item> source)
     {
-        var copy = new System.Collections.Generic.List<Item>();
+        target.Clear();
         foreach (var item in source)
-            copy.Add(new Item { id = item.id, itemName = item.itemName, amount = item.amount });
-        return copy;
+            target.Add(new Item { id = item.id, itemName = item.itemName, amount = item.amount });
     }
 
     public void ResetData()

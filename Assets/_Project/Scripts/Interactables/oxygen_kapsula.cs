@@ -85,6 +85,7 @@ public class OxygenKapsula : MonoBehaviour
                         gd.hasCheckpoint = true;
                         gd.checkpointScene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
                         gd.checkpointPosition = PlayerController.Instance.transform.position;
+                        gd.checkpointOxygen = gd.currentOxygen;
                         gd.checkpointInventory = gd.inventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
                         gd.checkpointChestInventory = gd.chestInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
                         DataManager.Instance.SaveData();

@@ -14,5 +14,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Dump.unity
     guid: 6415294f7fd0b3d49bc282205ef803e5
+  - enabled: 1
+    path: Assets/_Project/Scenes/Lobby.unity
+    guid: b501e866f553ecc4fa30751657389d72
+  - enabled: 1
+    path: Assets/_Project/Scenes/Maze.unity
+    guid: d888bec74e395b042b4c675494f02ac6
+  - enabled: 1
+    path: Assets/_Project/Scenes/Boss.unity
+    guid: bca17a1eeb974274d9cc789a971fcb3b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

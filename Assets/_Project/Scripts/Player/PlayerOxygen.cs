@@ -116,12 +116,6 @@ public class PlayerOxygen : MonoBehaviour
         {
             if (validCheckpoint)
             {
-                // Откат инвентаря к снапшоту чекпоинта (глубокая копия)
-                data.inventory.Clear();
-                data.inventory.AddRange(data.checkpointInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount }));
-                data.chestInventory.Clear();
-                data.chestInventory.AddRange(data.checkpointChestInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount }));
-
                 GameManager.Instance.pendingSpawnType = GameManager.SpawnType.Checkpoint;
                 GameManager.Instance.RespawnOnScene(data.checkpointScene);
             }

@@ -12,6 +12,7 @@ public class GameData
     public bool hasCheckpoint = false;
     public string checkpointScene = "";
     public Vector2 checkpointPosition;
+    public float checkpointOxygen;
     public List<Item> checkpointInventory = new List<Item>();
     public List<Item> checkpointChestInventory = new List<Item>();
 
@@ -29,10 +30,12 @@ public class GameData
 
     public GameData()
     {
-        // Инициализация при начале новой игры
         currentOxygen = maxOxygen;
+        checkpointOxygen = maxOxygen;
         inventory = new List<Item>();
         chestInventory = new List<Item>();
+        checkpointInventory = new List<Item>();
+        checkpointChestInventory = new List<Item>();
     }
 }
 
