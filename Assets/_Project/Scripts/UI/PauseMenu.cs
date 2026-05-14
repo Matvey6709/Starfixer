@@ -17,6 +17,25 @@ public class PauseMenu : MonoBehaviour
         lobbyButton.onClick.AddListener(GoToLobby);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
+    private void TogglePause()
+    {
+        if (pausePanel.activeSelf)
+        {
+            ClosePause();
+        }
+        else
+        {
+            OpenPause();
+        }
+    }
     private void OpenPause()
     {
         pausePanel.SetActive(true);
