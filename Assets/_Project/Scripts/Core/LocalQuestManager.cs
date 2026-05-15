@@ -21,7 +21,7 @@ public class LocalQuestManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Ищем текст по имени, которое мы видели на твоем скриншоте
+        // Ищем текст по имени при загрузке новой локации
         GameObject foundObject = GameObject.Find("QuestText");
         
         if (foundObject != null)
@@ -34,7 +34,8 @@ public class LocalQuestManager : MonoBehaviour
     {
         if (questTextUI == null) return;
 
-        if (PlayerController.Instance == null)
+        // Добавил проверку на DataManager, чтобы не было ошибок при старте
+        if (PlayerController.Instance == null || DataManager.Instance == null)
         {
             questTextUI.text = "Загрузка...";
             return;
@@ -97,34 +98,37 @@ public class LocalQuestManager : MonoBehaviour
         return $"[ ] {label}: {current}/{required}";
     }
 
-    // --- ГЛАВНОЕ ИЗМЕНЕНИЕ: ПОДСЧЕТ ИЗ ДВУХ ИСТОЧНИКОВ ---
+    // --- ЕДИНЫЙ ЦЕНТР ПОДСЧЕТА ЧЕРЕЗ DATAMANAGER ---
     int GetCount(string id)
     {
         int totalCount = 0;
 
-        // 1. Считаем в инвентаре игрока
-        if (PlayerController.Instance.inventory != null && PlayerController.Instance.inventory.items != null)
+        // Проверяем, существует ли база данных
+        if (DataManager.Instance == null || DataManager.Instance.gameData == null) 
+            return 0;
+
+        var data = DataManager.Instance.gameData;
+
+        // 1. Ищем в глобальном инвентаре игрока
+        if (data.inventory != null)
         {
-            foreach (var item in PlayerController.Instance.inventory.items)
+            foreach (var item in data.inventory)
             {
-                if (item != null && item.id == id) totalCount += item.amount;
+                if (item != null && string.Equals(item.id, id, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    totalCount += item.amount;
+                }
             }
         }
 
-        // 2. Считаем в сундуке (складе)
-        // ВАЖНО: Если скрипт сундука называется по-другому, замени 'Inventory' на его имя
-        // Мы ищем объект Chest_Warehouse и берем его данные
-        var warehouse = GameObject.Find("Chest_Warehouse");
-        if (warehouse != null)
+        // 2. Ищем в глобальном инвентаре сундука
+        if (data.chestInventory != null)
         {
-            // Здесь мы предполагаем, что на сундуке висит такой же скрипт Inventory или похожий
-            // Если у тебя там другой скрипт, замени GetComponent<Inventory>()
-            var chestInv = warehouse.GetComponent<Inventory>(); 
-            if (chestInv != null && chestInv.items != null)
+            foreach (var item in data.chestInventory)
             {
-                foreach (var item in chestInv.items)
+                if (item != null && string.Equals(item.id, id, System.StringComparison.OrdinalIgnoreCase))
                 {
-                    if (item != null && item.id == id) totalCount += item.amount;
+                    totalCount += item.amount;
                 }
             }
         }

@@ -1,34 +1,37 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ItemPickup : MonoBehaviour
 {
-    public Item item;
+    public Item item; // Данные предмета (ID: chip, Name: Chip)
 
-private void OnTriggerEnter2D(Collider2D other)
-{
-    if (other.CompareTag("Player"))
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        PlayerController player = other.GetComponentInParent<PlayerController>();
+        if (other.CompareTag("Player"))
+        {
+            if (DataManager.Instance == null || DataManager.Instance.gameData == null) return;
 
-        if (player == null)
-        {
-            Debug.LogError("Ошибка: На игроке не найден скрипт PlayerController!");
-            return;
-        }
-        if (player.inventory == null)
-        {
-            Debug.LogError("Ошибка: В PlayerController переменная inventory не инициализирована (null)!");
-            return;
-        }
-        if (item == null)
-        {
-            Debug.LogError("Ошибка: В объекте " + gameObject.name + " не заполнены данные в поле Item!");
-            return;
-        }
+            List<Item> playerInv = DataManager.Instance.gameData.inventory;
+            bool found = false;
 
-        player.inventory.AddItem(item);
-        Debug.Log("Подобран: " + item.itemName);
-        Destroy(gameObject);
+            // Ищем в глобальном списке
+            foreach (var invItem in playerInv)
+            {
+                if (invItem.id == item.id)
+                {
+                    invItem.amount += item.amount;
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+            {
+                playerInv.Add(new Item { id = item.id, itemName = item.itemName, amount = item.amount });
+            }
+
+            Debug.Log($"Чип добавлен в DataManager!");
+            Destroy(gameObject); // Исчезает со сцены
+        }
     }
-}
 }
