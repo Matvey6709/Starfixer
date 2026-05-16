@@ -472,6 +472,7 @@ MonoBehaviour:
     id: bearing
     itemName: Bearing
     amount: 1
+  uniqueID: dump_bearing_2
 --- !u!61 &113004166
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -627,6 +628,7 @@ MonoBehaviour:
     id: coolant
     itemName: Coolant
     amount: 1
+  uniqueID: dump_coolant_1
 --- !u!61 &131072062
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -818,6 +820,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1069537833631561844, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421683613477809308, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421683613477809308, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3421683613477809308, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774344488793367412, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6774344488793367412, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
@@ -1926,6 +1948,7 @@ MonoBehaviour:
     id: coil
     itemName: Coil
     amount: 1
+  uniqueID: dump_coil_2
 --- !u!61 &395006652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2140,6 +2163,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_1
 --- !u!61 &396430441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2236,6 +2260,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_7
 --- !u!61 &550331652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3425,6 +3450,7 @@ MonoBehaviour:
     id: cable
     itemName: Cable
     amount: 1
+  uniqueID: dump_cable_2
 --- !u!61 &636481696
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3580,6 +3606,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_5
 --- !u!61 &641839981
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3796,6 +3823,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_4
 --- !u!61 &690711764
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14386,6 +14414,7 @@ MonoBehaviour:
     id: coil
     itemName: Coil
     amount: 1
+  uniqueID: dump_coil_5
 --- !u!61 &791312415
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14707,6 +14736,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_8
 --- !u!61 &894916176
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14862,6 +14892,7 @@ MonoBehaviour:
     id: coil
     itemName: Coil
     amount: 1
+  uniqueID: dump_coil_3
 --- !u!61 &982790791
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15002,6 +15033,7 @@ MonoBehaviour:
     id: coil
     itemName: Coil
     amount: 1
+  uniqueID: dump_coil_1
 --- !u!61 &1033796652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15172,6 +15204,7 @@ MonoBehaviour:
     id: coolant
     itemName: Coolant
     amount: 1
+  uniqueID: dump_coolant_2
 --- !u!61 &1041580076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16167,6 +16200,7 @@ MonoBehaviour:
     id: cable
     itemName: Cable
     amount: 1
+  uniqueID: dump_cable_1
 --- !u!61 &1623488999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16322,6 +16356,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_3
 --- !u!61 &1644556699
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16510,6 +16545,7 @@ MonoBehaviour:
     id: bearing
     itemName: Bearing
     amount: 1
+  uniqueID: dump_bearing_1
 --- !u!61 &1726327251
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16665,6 +16701,7 @@ MonoBehaviour:
     id: cable
     itemName: Cable
     amount: 1
+  uniqueID: dump_cable_4
 --- !u!61 &1763195629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16820,6 +16857,7 @@ MonoBehaviour:
     id: coil
     itemName: Coil
     amount: 1
+  uniqueID: dump_coil_4
 --- !u!61 &1818373959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16975,6 +17013,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_2
 --- !u!61 &1843806999
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17130,6 +17169,7 @@ MonoBehaviour:
     id: patch
     itemName: Patch
     amount: 1
+  uniqueID: dump_patch_6
 --- !u!61 &1853628961
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17330,6 +17370,7 @@ MonoBehaviour:
     id: cable
     itemName: Cable
     amount: 1
+  uniqueID: dump_cable_3
 --- !u!61 &1963524510
 BoxCollider2D:
   m_ObjectHideFlags: 0

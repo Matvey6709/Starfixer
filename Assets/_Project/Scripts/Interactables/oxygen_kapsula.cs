@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic; // ДОБАВИЛИ СЮДА, чтобы работал List<string>
 
 public class OxygenKapsula : MonoBehaviour
 {
@@ -88,6 +89,11 @@ public class OxygenKapsula : MonoBehaviour
                         gd.checkpointOxygen = gd.currentOxygen;
                         gd.checkpointInventory = gd.inventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
                         gd.checkpointChestInventory = gd.chestInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
+                        
+                        // --- НОВАЯ СТРОЧКА ---
+                        // Фиксируем собранные на сценах предметы в чекпоинт
+                        gd.checkpointCollectedItems = new List<string>(gd.collectedItems);
+
                         DataManager.Instance.SaveData();
                         Debug.Log($"Чекпоинт сохранён: сцена={DataManager.Instance.gameData.checkpointScene}, позиция={transform.position}");
                     }

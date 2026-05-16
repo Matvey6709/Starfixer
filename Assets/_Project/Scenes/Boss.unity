@@ -524,34 +524,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6807138650718761023, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7107743671193361300, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
-      propertyPath: m_VertexColorAlwaysGammaSpace
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7937423179920521042, guid: 12dff1295a674624bb12be41c61ce3e0, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -34891,13 +34863,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2120919106}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.03720359, y: -0, z: -0, w: 0.99930775}
   m_LocalPosition: {x: 19.48, y: 7.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.264, y: 0, z: 0}
 --- !u!114 &2120919111
 MonoBehaviour:
   m_ObjectHideFlags: 0

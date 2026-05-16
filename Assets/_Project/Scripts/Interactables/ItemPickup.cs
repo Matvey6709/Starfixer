@@ -3,7 +3,31 @@ using System.Collections.Generic;
 
 public class ItemPickup : MonoBehaviour
 {
-    public Item item; // Данные предмета (ID: chip, Name: Chip)
+    [Header("Данные для инвентаря")]
+    public Item item; // Сюда настраиваешь, что это за предмет (ID, имя, количество)
+
+    [Header("Уникальный паспорт объекта")]
+    [Tooltip("Придумай уникальный ID для этого конкретного объекта на сцене (например: dump_patch_1)")]
+    public string uniqueID; 
+
+    private void Start()
+    {
+        // Проверяем, существует ли база данных
+        if (DataManager.Instance == null || DataManager.Instance.gameData == null) return;
+
+        // Если забыл написать ID в инспекторе — скрипт предупредит
+        if (string.IsNullOrEmpty(uniqueID))
+        {
+            Debug.LogWarning($"У объекта {gameObject.name} не заполнен uniqueID! Он будет возрождаться.");
+            return;
+        }
+
+        // ПРОВЕРКА: Если этот паспорт уже есть в списке собранных — уничтожаем предмет сразу при загрузке
+        if (DataManager.Instance.gameData.collectedItems.Contains(uniqueID))
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -11,27 +35,39 @@ public class ItemPickup : MonoBehaviour
         {
             if (DataManager.Instance == null || DataManager.Instance.gameData == null) return;
 
-            List<Item> playerInv = DataManager.Instance.gameData.inventory;
-            bool found = false;
+            // 1. Добавляем предмет в глобальный инвентарь DataManager
+            AddItemToGlobalInventory();
 
-            // Ищем в глобальном списке
-            foreach (var invItem in playerInv)
+            // 2. Записываем паспорт объекта в список собранных вещей
+            if (!string.IsNullOrEmpty(uniqueID) && !DataManager.Instance.gameData.collectedItems.Contains(uniqueID))
             {
-                if (invItem.id == item.id)
-                {
-                    invItem.amount += item.amount;
-                    found = true;
-                    break;
-                }
+                DataManager.Instance.gameData.collectedItems.Add(uniqueID);
+                Debug.Log($"Объект {uniqueID} добавлен в список собранных навсегда.");
             }
 
-            if (!found)
-            {
-                playerInv.Add(new Item { id = item.id, itemName = item.itemName, amount = item.amount });
-            }
+            // И удаляем его со сцены
+            Destroy(gameObject);
+        }
+    }
 
-            Debug.Log($"Чип добавлен в DataManager!");
-            Destroy(gameObject); // Исчезает со сцены
+    private void AddItemToGlobalInventory()
+    {
+        List<Item> playerInv = DataManager.Instance.gameData.inventory;
+        bool found = false;
+
+        foreach (var invItem in playerInv)
+        {
+            if (invItem.id == item.id)
+            {
+                invItem.amount += item.amount;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            playerInv.Add(new Item { id = item.id, itemName = item.itemName, amount = item.amount });
         }
     }
 }

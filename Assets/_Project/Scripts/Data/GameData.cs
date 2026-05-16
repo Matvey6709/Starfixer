@@ -15,7 +15,9 @@ public class GameData
     public float checkpointOxygen;
     public List<Item> checkpointInventory = new List<Item>();
     public List<Item> checkpointChestInventory = new List<Item>();
-
+    
+    // НОВОЕ: Сюда будут копироваться собранные предметы при сохранении у капсулы
+    public List<string> checkpointCollectedItems = new List<string>();
 
     [Header("Инвентарь игрока")]
     public List<Item> inventory = new List<Item>();
@@ -23,10 +25,9 @@ public class GameData
     [Header("Инвентарь сундука")]
     public List<Item> chestInventory = new List<Item>();
 
-    // Сюда в будущем можно добавлять любые переменные для сохранения:
-    // public int health = 100;
-    // public int credits = 0;
-    // public List<string> inventory;
+    [Header("Постоянство предметов")]
+    // НОВОЕ: Список уникальных ID (паспортов) предметов, которые игрок подобрал прямо сейчас
+    public List<string> collectedItems = new List<string>();
 
     public GameData()
     {
@@ -36,10 +37,9 @@ public class GameData
         chestInventory = new List<Item>();
         checkpointInventory = new List<Item>();
         checkpointChestInventory = new List<Item>();
+        
+        // НОВОЕ: Инициализируем списки в конструкторе
+        collectedItems = new List<string>();
+        checkpointCollectedItems = new List<string>();
     }
 }
-
-
-
-
-
