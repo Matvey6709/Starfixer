@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Cinemachine;
 using UnityEngine.UI;
+using System.Collections;
 
 // Этот скрипт требует, чтобы на объекте был компонент Rigidbody2D
 [RequireComponent(typeof(Rigidbody2D))]
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private bool isFacingRight = false;
     private bool isDead = false;
     private static string lastSceneName;
+    private bool isKnockedBack = false;
     public bool IsDead => isDead;
 
     public void SetDeadState(bool state)
@@ -54,8 +56,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (isDead) return;
+        if (isKnockedBack) return;
         HandleMovementInput();
     }
+
     private void HandleMovementInput() // Управление
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -82,10 +86,28 @@ public class PlayerController : MonoBehaviour
         transform.localScale = currentScale;
     }
 
+    public void ApplyKnockback(Vector2 direction, float force, float duration)
+    {
+        if (isDead) return;
+        StartCoroutine(KnockbackRoutine(direction, force, duration));
+    }
+
+    private IEnumerator KnockbackRoutine(Vector2 direction, float force, float duration)
+    {
+        isKnockedBack = true;
+
+        // Прикладываем резкий импульс в сторону отталкивания
+        rb.linearVelocity = direction * force;
+
+        yield return new WaitForSeconds(duration);
+
+        isKnockedBack = false;
+    }
 
     void FixedUpdate()
     {
         if (isDead) return;
+        if (isKnockedBack) return;
         rb.MovePosition(rb.position + moveInput * moveSpeed * Time.fixedDeltaTime);
     }
 
@@ -138,12 +160,17 @@ public class PlayerController : MonoBehaviour
             else if (lastSceneName == "SpaceShip")
             {
                 var sp = GameObject.FindWithTag("SpawnPoint");
-                if (sp != null) transform.position = sp.transform.position;
+                if (sp != null) transform.position = sp.transform.position + new Vector3(0, 1.5f, 0);
             }
             else if (lastSceneName == "Maze")
             {
                 var mazesp = GameObject.FindWithTag("exitMaze");
                 if (mazesp != null) transform.position = mazesp.transform.position + new Vector3(0, -5f, 0);
+            }
+            else if (lastSceneName == "Boss")
+            {
+                var bss = GameObject.FindWithTag("exitBoss");
+                if (bss != null) transform.position = bss.transform.position + new Vector3(0, 5f, 0);
             }
         }
         else if (scene.name == "SpaceShip")
@@ -161,6 +188,11 @@ public class PlayerController : MonoBehaviour
         {
             var em = GameObject.FindWithTag("EnterMaze");
             if (em != null) transform.position = em.transform.position;
+        }
+        else if (scene.name == "Boss")
+        {
+            var bs = GameObject.FindWithTag("SpawnPoint");
+            if (bs != null) transform.position = bs.transform.position;
         }
 
         lastSceneName = scene.name;

@@ -87,11 +87,43 @@ public class PlayerOxygen : MonoBehaviour
         StartCoroutine(DeathSequence());
     }
 
+    public void TakeDamage(float damageAmount)
+    {
+        if (DataManager.Instance == null || isDying) return;
+
+        // Вычитаем фиксированное количество единиц кислорода
+        DataManager.Instance.gameData.currentOxygen -= damageAmount;
+
+        // Ограничение, чтобы значение не уходило в минус
+        if (DataManager.Instance.gameData.currentOxygen <= 0)
+        {
+            DataManager.Instance.gameData.currentOxygen = 0;
+            DieFromSuffocation();
+        }
+
+        UpdateUI();
+        Debug.Log($"Получен урон: {damageAmount} ед. Осталось: {DataManager.Instance.gameData.currentOxygen}");
+    }
+
     private IEnumerator DeathSequence()
     {
         if (PlayerController.Instance != null)
         {
             PlayerController.Instance.SetDeadState(true);
+
+            Rigidbody2D rb = PlayerController.Instance.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector2.zero;        // Полностью гасим инерцию 
+                rb.bodyType = RigidbodyType2D.Kinematic; // Отключаем влияние гравитации и внешних сил
+            }
+
+            // 2. Отключаем основной коллайдер, чтобы его не выталкивало из текстур пола
+            Collider2D col = PlayerController.Instance.GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = false;
+            }
 
             Animator anim = PlayerController.Instance.GetComponent<Animator>();
             if (anim != null)
@@ -102,7 +134,7 @@ public class PlayerOxygen : MonoBehaviour
 
         Debug.Log("Проигрывание анимации смерти...");
 
-        // 3. Ждем завершения анимации (замените 2.0f на длительность вашей анимации)
+        // Ждем завершения анимации 
         yield return new WaitForSeconds(2.0f);
 
         Debug.Log("Вам не хватило кислорода... Перезапуск уровня.");

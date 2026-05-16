@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: 3030a05a34939c74abe294603a82b3eb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: generator_57
+      rect:
+        serializedVersion: 2
+        x: 2085
+        y: 509
+        width: 838
+        height: 1284
+      alignment: 9
+      pivot: {x: 0.71444374, y: 0.1853168}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a72e24b61fe324b899ceac3cf779b0
+      internalID: -1684926606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generator_66
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 505
+        width: 834
+        height: 1225
+      alignment: 9
+      pivot: {x: 0.71081126, y: 0.1930938}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fd2f9782946c0e4da7ed1c72f680e46
+      internalID: -973478436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generator_70
+      rect:
+        serializedVersion: 2
+        x: 2953
+        y: 505
+        width: 834
+        height: 1237
+      alignment: 9
+      pivot: {x: 0.71114683, y: 0.19105189}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6b22e5db42fdc54a88e8dd42634b405
+      internalID: 940058481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generator_73
+      rect:
+        serializedVersion: 2
+        x: 1185
+        y: 505
+        width: 836
+        height: 1203
+      alignment: 9
+      pivot: {x: 0.7125787, y: 0.19580595}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6c5c714b9eb3584dbbafd0b89c93a05
+      internalID: 1370156060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 8c3686a29f9ba444e9dcd715b9cc5847
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      generator_0: 1176723774
+      generator_1: 1287813710
+      generator_10: -672189169
+      generator_11: -814263622
+      generator_12: -1209224913
+      generator_13: -1312998012
+      generator_14: -1726274221
+      generator_15: -867328141
+      generator_16: -92737749
+      generator_17: 1272671806
+      generator_18: 1879381184
+      generator_19: 587527086
+      generator_2: -1358677402
+      generator_20: 825796628
+      generator_21: 1486860323
+      generator_22: 1631356740
+      generator_23: 1545540023
+      generator_24: -1491861419
+      generator_25: 292323827
+      generator_26: 401262199
+      generator_27: -1890604421
+      generator_28: -696747189
+      generator_29: 1289524077
+      generator_3: 915825345
+      generator_30: 1190600428
+      generator_31: -729205015
+      generator_32: 956127228
+      generator_33: -2087112715
+      generator_34: -1990009083
+      generator_35: 1289176008
+      generator_36: -1304838795
+      generator_37: -2034119024
+      generator_38: 1271360494
+      generator_39: 2383402
+      generator_4: 2019392480
+      generator_40: -937771309
+      generator_41: 370700084
+      generator_42: 1578763456
+      generator_43: -402802073
+      generator_44: -49505986
+      generator_45: -2122558639
+      generator_46: -308049155
+      generator_47: 1885148744
+      generator_48: -2089115832
+      generator_49: 749789020
+      generator_5: -1133473143
+      generator_50: -1335202952
+      generator_51: -1857948162
+      generator_52: 2040681706
+      generator_53: 2113167784
+      generator_54: 1677327530
+      generator_55: 926993277
+      generator_56: -1436569382
+      generator_57: -1684926606
+      generator_58: 1387311036
+      generator_59: -860371042
+      generator_6: 1597339617
+      generator_60: 2031385673
+      generator_61: 1823338157
+      generator_62: -1817460626
+      generator_63: 5396598
+      generator_64: 928002356
+      generator_65: -340918308
+      generator_66: -973478436
+      generator_67: 1121853913
+      generator_68: 306050821
+      generator_69: -532112289
+      generator_7: 640590875
+      generator_70: 940058481
+      generator_71: -620754490
+      generator_72: 1605667442
+      generator_73: 1370156060
+      generator_74: -1751719064
+      generator_75: -939603741
+      generator_76: 280280643
+      generator_77: -1604290929
+      generator_78: 1279244470
+      generator_79: 260577904
+      generator_8: -1120405534
+      generator_80: 129733686
+      generator_81: 2131230391
+      generator_82: 1004204730
+      generator_83: 1134902701
+      generator_9: -196169396
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

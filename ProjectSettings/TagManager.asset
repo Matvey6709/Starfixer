@@ -12,6 +12,7 @@ TagManager:
   - ExitDump
   - exitMaze
   - EnterMaze
+  - exitBoss
   layers:
   - Default
   - TransparentFX
@@ -20,10 +21,10 @@ TagManager:
   - Water
   - UI
   - Object
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - HurtBox
+  - floor
+  - items
   - 
   - 
   - 
