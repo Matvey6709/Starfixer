@@ -16,7 +16,6 @@ public class GameData
     public List<Item> checkpointInventory = new List<Item>();
     public List<Item> checkpointChestInventory = new List<Item>();
     
-    // НОВОЕ: Сюда будут копироваться собранные предметы при сохранении у капсулы
     public List<string> checkpointCollectedItems = new List<string>();
 
     [Header("Инвентарь игрока")]
@@ -26,7 +25,6 @@ public class GameData
     public List<Item> chestInventory = new List<Item>();
 
     [Header("Постоянство предметов")]
-    // НОВОЕ: Список уникальных ID (паспортов) предметов, которые игрок подобрал прямо сейчас
     public List<string> collectedItems = new List<string>();
 
     public GameData()
@@ -37,8 +35,6 @@ public class GameData
         chestInventory = new List<Item>();
         checkpointInventory = new List<Item>();
         checkpointChestInventory = new List<Item>();
-        
-        // НОВОЕ: Инициализируем списки в конструкторе
         collectedItems = new List<string>();
         checkpointCollectedItems = new List<string>();
     }

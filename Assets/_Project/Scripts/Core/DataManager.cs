@@ -24,8 +24,6 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
-        // Временно подставляем checkpoint-значения, чтобы на диск шло
-        // только то состояние, которое было на последней капсуле
         var liveInventory      = gameData.inventory;
         var liveChestInventory = gameData.chestInventory;
         var liveOxygen         = gameData.currentOxygen;
@@ -34,11 +32,10 @@ public class DataManager : MonoBehaviour
         gameData.inventory      = gameData.checkpointInventory;
         gameData.chestInventory = gameData.checkpointChestInventory;
         gameData.currentOxygen  = gameData.checkpointOxygen;
-        gameData.collectedItems = gameData.checkpointCollectedItems; // Записываем в файл то, что было зафиксировано капсулой
+        gameData.collectedItems = gameData.checkpointCollectedItems; 
 
         string json = JsonUtility.ToJson(gameData);
 
-        // Возвращаем живые данные обратно в игру после сохранения
         gameData.inventory      = liveInventory;
         gameData.chestInventory = liveChestInventory;
         gameData.currentOxygen  = liveOxygen;
@@ -71,14 +68,12 @@ public class DataManager : MonoBehaviour
             if (gameData.checkpointChestInventory == null)
                 gameData.checkpointChestInventory = new List<Item>();
 
-            // --- ДОБАВЛЕНО: Защита от пустых списков при загрузке ---
             if (gameData.collectedItems == null)
                 gameData.collectedItems = new List<string>();
 
             if (gameData.checkpointCollectedItems == null)
                 gameData.checkpointCollectedItems = new List<string>();
 
-            // Старые сохранения не имели checkpointOxygen — считаем максимум
             if (gameData.checkpointOxygen <= 0)
                 gameData.checkpointOxygen = gameData.maxOxygen;
 
@@ -93,12 +88,9 @@ public class DataManager : MonoBehaviour
 
     public void RestoreFromCheckpoint()
     {
-        // Очищаем и заполняем существующие списки инвентаря, не заменяя ссылки
         RefillList(gameData.inventory, gameData.checkpointInventory);
         RefillList(gameData.chestInventory, gameData.checkpointChestInventory);
         
-        // --- ДОБАВЛЕНО: Откат собранных предметов при смерти / перезапуске до капсулы ---
-        // Если игрок подобрал что-то ПОСЛЕ капсулы и умер, эти предметы вернутся на сцену
         RefillStringList(gameData.collectedItems, gameData.checkpointCollectedItems);
 
         gameData.currentOxygen = gameData.checkpointOxygen > 0
@@ -106,8 +98,6 @@ public class DataManager : MonoBehaviour
             : gameData.maxOxygen;
         Debug.Log("Данные откатаны до чекпоинта. Собранные после капсулы предметы восстановлены.");
     }
-
-    // Оставлен для обратной совместимости
     public void RestoreInventoryFromCheckpoint() => RestoreFromCheckpoint();
 
     private void RefillList(List<Item> target, List<Item> source)
@@ -117,7 +107,6 @@ public class DataManager : MonoBehaviour
             target.Add(new Item { id = item.id, itemName = item.itemName, amount = item.amount });
     }
 
-    // --- ДОБАВЛЕНО: Вспомогательный метод для безопасной перезаписи списков ID ---
     private void RefillStringList(List<string> target, List<string> source)
     {
         target.Clear();

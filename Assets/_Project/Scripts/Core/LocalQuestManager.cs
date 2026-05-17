@@ -21,7 +21,6 @@ public class LocalQuestManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Ищем текст по имени при загрузке новой локации
         GameObject foundObject = GameObject.Find("QuestText");
         
         if (foundObject != null)
@@ -34,7 +33,6 @@ public class LocalQuestManager : MonoBehaviour
     {
         if (questTextUI == null) return;
 
-        // Добавил проверку на DataManager, чтобы не было ошибок при старте
         if (PlayerController.Instance == null || DataManager.Instance == null || DataManager.Instance.gameData == null)
         {
             questTextUI.text = "Загрузка...";
@@ -49,19 +47,14 @@ public class LocalQuestManager : MonoBehaviour
         StringBuilder sb = new StringBuilder();
         string sceneName = SceneManager.GetActiveScene().name;
 
-        // --- ЛОГИКА ОТОБРАЖЕНИЯ ПО СЦЕНАМ ---
-
         if (sceneName == "SpaceShip" || sceneName == "Nimbus")
         {
             sb.AppendLine("<color=#00E5FF>ГЛОБАЛЬНЫЕ ЦЕЛИ:</color>");
-            // Теперь статус зависит от наших новых функций-проверок
             sb.AppendLine(GetTaskStatus("Пройти свалку", IsDumpCleared())); 
             sb.AppendLine(GetTaskStatus("Пройти лабиринт", IsMazeCleared()));
             sb.AppendLine(GetTaskStatus("Одолеть босса", IsBossDefeated()));
-            
-            // Если все три локации пройдены, логично, что осталась починка
             bool readyToRepair = IsDumpCleared() && IsMazeCleared() && IsBossDefeated();
-            sb.AppendLine(GetTaskStatus("Починить корабль", false)); // Это пока false, поменяешь, когда сделаешь механику починки
+            sb.AppendLine(GetTaskStatus("Починить корабль", false)); 
         }
         else if (sceneName == "Dump")
         {
@@ -81,7 +74,6 @@ public class LocalQuestManager : MonoBehaviour
         {
             sb.AppendLine("<color=#FF4500>ФИНАЛЬНЫЙ ЭТАП:</color>");
             sb.AppendLine(GetTaskStatus("Одолеть босса", IsBossDefeated()));
-            // Если с босса падает энергосфера, поменяй ID "engine_part" на "electrocore" при необходимости
             sb.AppendLine(FormatResource("Часть двигателя", "engine_part", 1)); 
         }
         else
@@ -92,7 +84,6 @@ public class LocalQuestManager : MonoBehaviour
         questTextUI.text = sb.ToString();
     }
 
-    // --- НОВЫЕ ФУНКЦИИ ПРОВЕРКИ ПРОХОЖДЕНИЯ ---
 
     bool IsDumpCleared()
     {
@@ -110,11 +101,9 @@ public class LocalQuestManager : MonoBehaviour
 
     bool IsBossDefeated()
     {
-        // Замени "engine_part" на ID энергосферы, если ты назвал её по-другому (например, "electrocore")
         return GetCount("engine_part") >= 1; 
     }
 
-    // ------------------------------------------
 
     string FormatResource(string label, string id, int required)
     {
