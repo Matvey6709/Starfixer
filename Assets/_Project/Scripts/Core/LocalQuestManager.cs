@@ -35,7 +35,7 @@ public class LocalQuestManager : MonoBehaviour
         if (questTextUI == null) return;
 
         // Добавил проверку на DataManager, чтобы не было ошибок при старте
-        if (PlayerController.Instance == null || DataManager.Instance == null)
+        if (PlayerController.Instance == null || DataManager.Instance == null || DataManager.Instance.gameData == null)
         {
             questTextUI.text = "Загрузка...";
             return;
@@ -54,10 +54,14 @@ public class LocalQuestManager : MonoBehaviour
         if (sceneName == "SpaceShip" || sceneName == "Nimbus")
         {
             sb.AppendLine("<color=#00E5FF>ГЛОБАЛЬНЫЕ ЦЕЛИ:</color>");
-            sb.AppendLine(GetTaskStatus("Пройти свалку", false)); 
-            sb.AppendLine(GetTaskStatus("Пройти лабиринт", false));
-            sb.AppendLine(GetTaskStatus("Одолеть босса", false));
-            sb.AppendLine(GetTaskStatus("Починить корабль", false));
+            // Теперь статус зависит от наших новых функций-проверок
+            sb.AppendLine(GetTaskStatus("Пройти свалку", IsDumpCleared())); 
+            sb.AppendLine(GetTaskStatus("Пройти лабиринт", IsMazeCleared()));
+            sb.AppendLine(GetTaskStatus("Одолеть босса", IsBossDefeated()));
+            
+            // Если все три локации пройдены, логично, что осталась починка
+            bool readyToRepair = IsDumpCleared() && IsMazeCleared() && IsBossDefeated();
+            sb.AppendLine(GetTaskStatus("Починить корабль", false)); // Это пока false, поменяешь, когда сделаешь механику починки
         }
         else if (sceneName == "Dump")
         {
@@ -76,8 +80,9 @@ public class LocalQuestManager : MonoBehaviour
         else if (sceneName == "Boss")
         {
             sb.AppendLine("<color=#FF4500>ФИНАЛЬНЫЙ ЭТАП:</color>");
-            sb.AppendLine("- Одолеть босса");
-            sb.AppendLine(FormatResource("Часть двигателя", "engine_part", 1));
+            sb.AppendLine(GetTaskStatus("Одолеть босса", IsBossDefeated()));
+            // Если с босса падает энергосфера, поменяй ID "engine_part" на "electrocore" при необходимости
+            sb.AppendLine(FormatResource("Часть двигателя", "engine_part", 1)); 
         }
         else
         {
@@ -87,7 +92,30 @@ public class LocalQuestManager : MonoBehaviour
         questTextUI.text = sb.ToString();
     }
 
-    // Вспомогательная функция для оформления строк ресурсов
+    // --- НОВЫЕ ФУНКЦИИ ПРОВЕРКИ ПРОХОЖДЕНИЯ ---
+
+    bool IsDumpCleared()
+    {
+        return GetCount("patch") >= 8 && 
+               GetCount("coil") >= 5 && 
+               GetCount("cable") >= 4 && 
+               GetCount("coolant") >= 2 && 
+               GetCount("bearing") >= 2;
+    }
+
+    bool IsMazeCleared()
+    {
+        return GetCount("chip") >= 1;
+    }
+
+    bool IsBossDefeated()
+    {
+        // Замени "engine_part" на ID энергосферы, если ты назвал её по-другому (например, "electrocore")
+        return GetCount("engine_part") >= 1; 
+    }
+
+    // ------------------------------------------
+
     string FormatResource(string label, string id, int required)
     {
         int current = GetCount(id);
@@ -98,18 +126,11 @@ public class LocalQuestManager : MonoBehaviour
         return $"[ ] {label}: {current}/{required}";
     }
 
-    // --- ЕДИНЫЙ ЦЕНТР ПОДСЧЕТА ЧЕРЕЗ DATAMANAGER ---
     int GetCount(string id)
     {
         int totalCount = 0;
-
-        // Проверяем, существует ли база данных
-        if (DataManager.Instance == null || DataManager.Instance.gameData == null) 
-            return 0;
-
         var data = DataManager.Instance.gameData;
 
-        // 1. Ищем в глобальном инвентаре игрока
         if (data.inventory != null)
         {
             foreach (var item in data.inventory)
@@ -121,7 +142,6 @@ public class LocalQuestManager : MonoBehaviour
             }
         }
 
-        // 2. Ищем в глобальном инвентаре сундука
         if (data.chestInventory != null)
         {
             foreach (var item in data.chestInventory)
