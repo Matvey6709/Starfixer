@@ -4,17 +4,13 @@ public class ComputerOSIRIS : MonoBehaviour
 {
     private bool isInComputerZone = false;
 
-    void Start()
-    {
-
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             isInComputerZone = true;
-            Debug.Log("Подойдите ближе к ОСИРИСУ. Нажмите E для входа.");
+            Debug.Log("Р’С‹ СЂСЏРґРѕРј СЃ OSIRIS. РќР°Р¶РјРёС‚Рµ E РґР»СЏ РІС…РѕРґР°.");
+            InteractionHintUI.Show("РќР°Р¶РјРё E вЂ” РІРѕР№С‚Рё РІ OSIRIS");
         }
     }
 
@@ -26,13 +22,7 @@ public class ComputerOSIRIS : MonoBehaviour
         }
     }
 
-    // ЛОГИКА ВЗАИМОДЕЙСТВИЯ (Ловим нажатие 'E')
-    void Update()
-    {
-        HandleInteractions();
-    }
-
-    private void HandleInteractions()
+    private void Update()
     {
         if (isInComputerZone && Input.GetKeyDown(KeyCode.E))
         {
@@ -40,8 +30,9 @@ public class ComputerOSIRIS : MonoBehaviour
         }
     }
 
-    void ExecuteComputerAction()
+    private void ExecuteComputerAction()
     {
-        Debug.Log("Вход в систему ОСИРИС... Авторизация инженера Эрика подтверждена.");
+        Debug.Log("Р’С…РѕРґ РІ СЃРёСЃС‚РµРјСѓ OSIRIS... С„СѓРЅРєС†РёРѕРЅР°Р»СЊРЅРѕСЃС‚СЊ Р±СѓРґРµС‚ РґРѕР±Р°РІР»РµРЅР°.");
+        InteractionHintUI.Show("РџРѕРґРєР»СЋС‡РµРЅРёРµ Рє OSIRIS...");
     }
 }

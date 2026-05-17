@@ -28,10 +28,12 @@ public class OxygenKapsula : MonoBehaviour
             if (isFull)
             {
                 Debug.Log("Вы рядом с капсулой. Нажмите E для пополнения запаса кислорода.");
+                InteractionHintUI.Show("Нажми E — пополнить кислород");
             }
             else
             {
                 Debug.Log($"Капсула пуста. До заполнения: {Mathf.Ceil(rechargeTime - currentTimer)} сек.");
+                InteractionHintUI.Show($"Капсула пуста ({Mathf.Ceil(rechargeTime - currentTimer)} сек)");
             }
         }
     }

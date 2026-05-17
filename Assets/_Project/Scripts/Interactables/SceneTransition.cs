@@ -54,10 +54,12 @@ public class SceneTransition : MonoBehaviour
             if (requiresOpening && !isOpen)
             {
                 Debug.Log(needOpenMessage);
+                InteractionHintUI.Show(needOpenMessage);
             }
             else
             {
                 Debug.Log(welcomeMessage);
+                InteractionHintUI.Show(welcomeMessage);
             }
         }
     }
@@ -101,10 +103,12 @@ public class SceneTransition : MonoBehaviour
         if (isOpen)
         {
             Debug.Log("Проход открыт! " + welcomeMessage);
+            InteractionHintUI.Show("Проход открыт. " + welcomeMessage);
         }
         else
         {
             Debug.Log("Проход закрыт! " + needOpenMessage);
+            InteractionHintUI.Show("Проход закрыт. " + needOpenMessage);
         }
     }
 

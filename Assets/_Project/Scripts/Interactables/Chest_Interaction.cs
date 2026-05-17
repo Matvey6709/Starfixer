@@ -86,6 +86,7 @@ public class ChestInteraction : MonoBehaviour
         {
             isPlayerInRange = true;
             Debug.Log("Нажми E, чтобы открыть сундук");
+            InteractionHintUI.Show("Нажми E — открыть сундук");
         }
     }
 

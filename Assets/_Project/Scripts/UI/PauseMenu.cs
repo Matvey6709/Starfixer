@@ -8,6 +8,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button continueButton;
     [SerializeField] private Button lobbyButton;
+    [SerializeField] private Button tutorialButton;
+    [SerializeField] private TutorialUI tutorialUI;
 
     private void Start()
     {
@@ -15,6 +17,12 @@ public class PauseMenu : MonoBehaviour
         menuButton.onClick.AddListener(OpenPause);
         continueButton.onClick.AddListener(ClosePause);
         lobbyButton.onClick.AddListener(GoToLobby);
+        if (tutorialButton != null) tutorialButton.onClick.AddListener(OpenTutorial);
+    }
+
+    private void OpenTutorial()
+    {
+        if (tutorialUI != null) tutorialUI.Open();
     }
 
     private void Update()
