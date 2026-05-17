@@ -115,6 +115,7 @@ public class SceneTransition : MonoBehaviour
     private void PerformTransition()
     {
         Debug.Log($"Перемещаемся на сцену: {sceneToLoad}!");
+        SoundManager.PlayTeleport();
 
         // Безопасный вызов перехода: используем твой GameManager, а если его нет на сцене — обычный SceneManager
         if (GameManager.Instance != null)

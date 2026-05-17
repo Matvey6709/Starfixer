@@ -104,11 +104,13 @@ public class BossAI : MonoBehaviour
     {
         anim.SetTrigger("Shoot");
         Instantiate(bulletPrefab, firePoint.position, GetClampedAimRotation());
+        SoundManager.PlayBossShot();
     }
 
     void StrongLaser()
     {
         anim.SetTrigger("Laser");
+        SoundManager.PlayBossLaser();
         if (laserScript != null)
         {
             laserScript.Fire(player);

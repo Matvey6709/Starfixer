@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7959021825364022251}
   - component: {fileID: 3672696621908608843}
   - component: {fileID: 7470161366609224628}
+  - component: {fileID: 3841377607463881802}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -52,10 +53,13 @@ MonoBehaviour:
     hasCheckpoint: 0
     checkpointScene: 
     checkpointPosition: {x: 0, y: 0}
+    checkpointOxygen: 100
     checkpointInventory: []
     checkpointChestInventory: []
+    checkpointCollectedItems: []
     inventory: []
     chestInventory: []
+    collectedItems: []
 --- !u!114 &3672696621908608843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,3 +86,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LocalQuestManager
   questTextUI: {fileID: 0}
+--- !u!114 &3841377607463881802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4818199292637517692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda88f4ebc55b64468ce11f84dd92e56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  footstepsClip: {fileID: 8300000, guid: e093ff15bd2e36443ab69f12ceb347ce, type: 3}
+  deathClip: {fileID: 8300000, guid: 0813942091742f742969807ec6ecae8f, type: 3}
+  pickupClip: {fileID: 8300000, guid: 66c2fd8dfd762694fad41550bcf81962, type: 3}
+  chestOpenClip: {fileID: 8300000, guid: c75f19e1d6022454282f19d39b0b3eb2, type: 3}
+  teleportClip: {fileID: 8300000, guid: 99ee4793b69fb5f4ca76122a4b6c2b61, type: 3}
+  questCompleteClip: {fileID: 8300000, guid: 8e93787bcc474234abc1f7aca720861b, type: 3}
+  sfxVolume: 1
+  footstepsVolume: 0.7

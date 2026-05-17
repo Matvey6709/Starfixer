@@ -107,6 +107,9 @@ public class PlayerOxygen : MonoBehaviour
 
     private IEnumerator DeathSequence()
     {
+        SoundManager.PlayDeath();
+        SoundManager.SetFootsteps(false);
+
         if (PlayerController.Instance != null)
         {
             PlayerController.Instance.SetDeadState(true);

@@ -29,6 +29,12 @@ public class LocalQuestManager : MonoBehaviour
         }
     }
 
+    private bool dumpDonePrev;
+    private bool mazeDonePrev;
+    private bool bossDonePrev;
+    private bool allDonePrev;
+    private bool initializedQuestState;
+
     void Update()
     {
         if (questTextUI == null) return;
@@ -39,7 +45,36 @@ public class LocalQuestManager : MonoBehaviour
             return;
         }
 
+        CheckQuestProgress();
         DrawQuestList();
+    }
+
+    private void CheckQuestProgress()
+    {
+        bool dumpDone = IsDumpCleared();
+        bool mazeDone = IsMazeCleared();
+        bool bossDone = IsBossDefeated();
+        bool allDone = dumpDone && mazeDone && bossDone;
+
+        if (!initializedQuestState)
+        {
+            dumpDonePrev = dumpDone;
+            mazeDonePrev = mazeDone;
+            bossDonePrev = bossDone;
+            allDonePrev = allDone;
+            initializedQuestState = true;
+            return;
+        }
+
+        if (dumpDone && !dumpDonePrev) SoundManager.PlayQuestComplete();
+        if (mazeDone && !mazeDonePrev) SoundManager.PlayQuestComplete();
+        if (bossDone && !bossDonePrev) SoundManager.PlayQuestComplete();
+        if (allDone && !allDonePrev) SoundManager.PlayQuestComplete();
+
+        dumpDonePrev = dumpDone;
+        mazeDonePrev = mazeDone;
+        bossDonePrev = bossDone;
+        allDonePrev = allDone;
     }
 
     void DrawQuestList()

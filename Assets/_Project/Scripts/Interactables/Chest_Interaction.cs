@@ -59,6 +59,7 @@ public class ChestInteraction : MonoBehaviour
         }
 
         Debug.Log("Сундук открыт");
+        SoundManager.PlayChestOpen();
     }
 
     private void CloseChest()

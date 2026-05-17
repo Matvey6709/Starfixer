@@ -55,8 +55,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (isDead) return;
-        if (isKnockedBack) return;
+        if (isDead || isKnockedBack)
+        {
+            SoundManager.SetFootsteps(false);
+            return;
+        }
         HandleMovementInput();
     }
 
@@ -71,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
         bool isMoving = (moveInput.magnitude > 0);
         anim.SetBool("IsWalking", isMoving);
+        SoundManager.SetFootsteps(isMoving);
 
         if (moveInput.x > 0 && !isFacingRight)
             Flip();

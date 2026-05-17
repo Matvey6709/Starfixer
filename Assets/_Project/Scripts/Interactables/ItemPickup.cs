@@ -37,6 +37,7 @@ public class ItemPickup : MonoBehaviour
 
             // 1. Добавляем предмет в глобальный инвентарь DataManager
             AddItemToGlobalInventory();
+            SoundManager.PlayPickup();
 
             // 2. Записываем паспорт объекта в список собранных вещей
             if (!string.IsNullOrEmpty(uniqueID) && !DataManager.Instance.gameData.collectedItems.Contains(uniqueID))
