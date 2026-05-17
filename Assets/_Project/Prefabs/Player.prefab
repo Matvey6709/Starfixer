@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 7
-  inventory: {fileID: 0}
+  inventory: {fileID: 7225399105277773502}
 --- !u!95 &7819602443076234204
 Animator:
   serializedVersion: 7
@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a2bbb163bc4c849a88e6c4573d1b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerOxygen
-  oxygenDepletionRate: 5
+  oxygenDepletionRate: 2
   oxygenSlider: {fileID: 5154302691499817143, guid: 941692832caed9c409e2e7eda7e68dcc, type: 3}
 --- !u!114 &7225399105277773502
 MonoBehaviour:

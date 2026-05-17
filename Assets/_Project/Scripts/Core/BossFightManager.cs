@@ -74,11 +74,21 @@ public class BossFightManager : MonoBehaviour
         if (bossIsDead) return;
 
         bossIsDead = true;
-        Debug.Log("Рычаг нажат! Босс повержен окончательно!");
+        Debug.Log("Рычаг нажат! Босс повержен!");
 
+        if (generators != null && generators.Length > 0)
+        {
+            foreach (var generator in generators)
+            {
+                if (generator != null)
+                {
+                    generator.ResetAndDisable(); 
+                }
+            }
+        }
         if (bossScript != null)
         {
-            bossScript.Die(); // Твой старый метод: взрыв молнии в центре, тряска камеры
+            bossScript.Die();
         }
     }
 }

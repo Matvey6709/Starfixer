@@ -98,7 +98,7 @@ public class EnergyGenerator : MonoBehaviour
         if (collision.CompareTag("Player") && !isFullyCharged)
         {
             playerInTrigger = true;
-
+            InteractionHintUI.Show("Удерживай пробел, что выключить генератор.");
             // Включаем синее свечение на камере
             if (CameraGlowController.Instance != null)
             {
@@ -112,12 +112,34 @@ public class EnergyGenerator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerInTrigger = false;
-
+            
             // Выключаем синее свечение на камере
             if (CameraGlowController.Instance != null)
             {
                 CameraGlowController.Instance.SetGlow(false);
             }
+        }
+    }
+
+    public void ResetAndDisable()
+    {
+        currentPhase = 0;        
+        chargeTimer = 0f;       
+        isFullyCharged = false;  
+        playerInTrigger = false; 
+
+        UpdateSprite();      
+
+        Collider2D generatorCollider = GetComponent<Collider2D>();
+        if (generatorCollider != null)
+        {
+            generatorCollider.enabled = false;
+            Debug.Log($"[ГЕНЕРАТОР] {gameObject.name} успешно сброшен и отключен.");
+        }
+
+        if (CameraGlowController.Instance != null)
+        {
+            CameraGlowController.Instance.SetGlow(false);
         }
     }
 }

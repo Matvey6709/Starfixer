@@ -9,6 +9,22 @@ public class LocalQuestManager : MonoBehaviour
     [Header("Настройки UI")]
     public TextMeshProUGUI questTextUI;
 
+    public static LocalQuestManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -120,7 +136,7 @@ public class LocalQuestManager : MonoBehaviour
     }
 
 
-    bool IsDumpCleared()
+    public bool IsDumpCleared()
     {
         return GetCount("patch") >= 8 && 
                GetCount("coil") >= 5 && 
@@ -129,7 +145,7 @@ public class LocalQuestManager : MonoBehaviour
                GetCount("bearing") >= 2;
     }
 
-    bool IsMazeCleared()
+    public bool IsMazeCleared()
     {
         return GetCount("chip") >= 1;
     }

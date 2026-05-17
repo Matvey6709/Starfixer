@@ -63,6 +63,7 @@ public class PlayerOxygen : MonoBehaviour
         if (sliderObj != null)
         {
             oxygenSlider = sliderObj.GetComponent<Slider>();
+            oxygenSlider.interactable = false;
         }
     }
 
@@ -178,6 +179,21 @@ public class PlayerOxygen : MonoBehaviour
         if (PlayerController.Instance != null)
         {
             PlayerController.Instance.SetDeadState(false);
+
+            Collider2D col = PlayerController.Instance.GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = true;
+                Debug.Log("[ФИЗИКА] Коллайдер игрока успешно восстановлен.");
+            }
+
+            Rigidbody2D rb = PlayerController.Instance.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.bodyType = RigidbodyType2D.Dynamic;
+                rb.linearVelocity = Vector2.zero; 
+            }
+
             Animator anim = PlayerController.Instance.GetComponent<Animator>();
             if (anim != null)
             {
@@ -188,7 +204,7 @@ public class PlayerOxygen : MonoBehaviour
                 anim.SetBool("IsWalking", false);
             }
         }
-            
+
         FindOxygenSlider();
         UpdateUI();
     }

@@ -114,6 +114,26 @@ public class SceneTransition : MonoBehaviour
 
     private void PerformTransition()
     {
+        if (sceneToLoad == "Maze")
+        {
+            if (LocalQuestManager.Instance != null && !LocalQuestManager.Instance.IsDumpCleared())
+            {
+                Debug.LogWarning("[ДОСТУП ОГРАНИЧЕН] Сначала нужно завершить квест на Свалке!");
+                InteractionHintUI.Show("Вход заблокирован. Сначала соберите детали на Свалке!");
+                return; 
+            }
+        }
+
+        if (sceneToLoad == "Boss")
+        {
+            if (LocalQuestManager.Instance != null && !LocalQuestManager.Instance.IsMazeCleared())
+            {
+                Debug.LogWarning("[ДОСТУП ОГРАНИЧЕН] Сначала нужно пройти Бункер и найти чип!");
+                InteractionHintUI.Show("Доступ закрыт. Найдите микросхему в Бункере!");
+                return; 
+            }
+        }
+
         Debug.Log($"Перемещаемся на сцену: {sceneToLoad}!");
         SoundManager.PlayTeleport();
 
