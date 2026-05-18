@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ItemPickup : MonoBehaviour
 {
     [Header("Данные для инвентаря")]
-    public Item item; // Сюда настраиваешь, что это за предмет (ID, имя, количество)
+    public Item item; 
 
     [Header("Уникальный паспорт объекта")]
     [Tooltip("Придумай уникальный ID для этого конкретного объекта на сцене (например: dump_patch_1)")]
@@ -12,17 +12,14 @@ public class ItemPickup : MonoBehaviour
 
     private void Start()
     {
-        // Проверяем, существует ли база данных
         if (DataManager.Instance == null || DataManager.Instance.gameData == null) return;
 
-        // Если забыл написать ID в инспекторе — скрипт предупредит
         if (string.IsNullOrEmpty(uniqueID))
         {
             Debug.LogWarning($"У объекта {gameObject.name} не заполнен uniqueID! Он будет возрождаться.");
             return;
         }
 
-        // ПРОВЕРКА: Если этот паспорт уже есть в списке собранных — уничтожаем предмет сразу при загрузке
         if (DataManager.Instance.gameData.collectedItems.Contains(uniqueID))
         {
             Destroy(gameObject);
@@ -35,18 +32,15 @@ public class ItemPickup : MonoBehaviour
         {
             if (DataManager.Instance == null || DataManager.Instance.gameData == null) return;
 
-            // 1. Добавляем предмет в глобальный инвентарь DataManager
             AddItemToGlobalInventory();
             SoundManager.PlayPickup();
 
-            // 2. Записываем паспорт объекта в список собранных вещей
             if (!string.IsNullOrEmpty(uniqueID) && !DataManager.Instance.gameData.collectedItems.Contains(uniqueID))
             {
                 DataManager.Instance.gameData.collectedItems.Add(uniqueID);
                 Debug.Log($"Объект {uniqueID} добавлен в список собранных навсегда.");
             }
 
-            // И удаляем его со сцены
             Destroy(gameObject);
         }
     }

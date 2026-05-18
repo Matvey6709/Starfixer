@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal; // Обязательно для URP
+using UnityEngine.Rendering.Universal; 
 using System.Collections;
 
 public class CameraGlowController : MonoBehaviour
@@ -12,8 +12,8 @@ public class CameraGlowController : MonoBehaviour
     private Coroutine fadeCoroutine;
 
     [Header("Настройки анимации")]
-    public float maxIntensity = 0.45f; // Насколько сильно будет видно синее свечение
-    public float fadeSpeed = 4f;       // Скорость появления/исчезновения
+    public float maxIntensity = 0.45f; 
+    public float fadeSpeed = 4f;      
 
     private void Awake()
     {
@@ -21,15 +21,13 @@ public class CameraGlowController : MonoBehaviour
         else Destroy(gameObject);
 
         volume = GetComponent<Volume>();
-        // Достаем профиль виньетки
         if (volume.profile.TryGet(out Vignette outVignette))
         {
             vignette = outVignette;
-            vignette.intensity.value = 0f; // При старте свечения нет
+            vignette.intensity.value = 0f; 
         }
     }
 
-    // Метод для включения свечения
     public void SetGlow(bool active)
     {
         if (vignette == null) return;

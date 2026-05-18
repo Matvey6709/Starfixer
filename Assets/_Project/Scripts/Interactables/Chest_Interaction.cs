@@ -4,8 +4,8 @@ public class ChestInteraction : MonoBehaviour
 {
     private Animator chestAnimator;
 
-    private bool isPlayerInRange = false; // рядом ли игрок
-    public bool isOpen = false; // открыт ли сундук
+    private bool isPlayerInRange = false; 
+    public bool isOpen = false; 
 
     [Header("UI")]
     public GameObject inventoryUI; 
@@ -19,7 +19,6 @@ public class ChestInteraction : MonoBehaviour
             Debug.LogError("На объекте сундука не найден компонент Animator!");
         }
 
-        // Скрываем UI при старте
         if (inventoryUI != null)
         {
             inventoryUI.SetActive(false);
@@ -32,7 +31,6 @@ public class ChestInteraction : MonoBehaviour
 
     void Update()
     {
-        // Нажатие E рядом с сундуком
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
             if (!isOpen)
@@ -46,13 +44,11 @@ public class ChestInteraction : MonoBehaviour
     {
         isOpen = true;
 
-        // Анимация
         if (chestAnimator != null)
         {
             chestAnimator.SetBool("IsOpen", true);
         }
 
-        // ВКЛЮЧАЕМ UI
         if (inventoryUI != null)
         {
             inventoryUI.SetActive(true);
@@ -66,13 +62,11 @@ public class ChestInteraction : MonoBehaviour
     {
         isOpen = false;
 
-        // Анимация
         if (chestAnimator != null)
         {
             chestAnimator.SetBool("IsOpen", false);
         }
 
-        // ВЫКЛЮЧАЕМ UI
         if (inventoryUI != null)
         {
             inventoryUI.SetActive(false);
@@ -97,7 +91,6 @@ public class ChestInteraction : MonoBehaviour
         {
             isPlayerInRange = false;
 
-            // Авто-закрытие при уходе
             if (isOpen)
                 CloseChest();
         }

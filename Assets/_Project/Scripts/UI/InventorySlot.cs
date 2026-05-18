@@ -28,21 +28,12 @@ public class InventorySlot : MonoBehaviour
 
     public ChestInteraction chest;
 
-
-
-    /// Метод вызывается при нажатии на кнопку (белый квадрат) в UI
-
     public void OnClick()
 
     {
 
-        // Проверка: если сундук назначен, но закрыт — игнорируем клик
-
         if (chest != null && !chest.isOpen) return;
 
-
-
-        // Проверка: есть ли доступ к данным
 
         if (DataManager.Instance == null || DataManager.Instance.gameData == null)
 
@@ -64,8 +55,6 @@ public class InventorySlot : MonoBehaviour
 
         {
 
-            // ЗАБИРАЕМ ИЗ СУНДУКА -> В ИНВЕНТАРЬ ИГРОКА
-
             if (HasItem(data.chestInventory))
 
             {
@@ -79,8 +68,6 @@ public class InventorySlot : MonoBehaviour
         else
 
         {
-
-            // КЛАДЕМ ИЗ ИНВЕНТАРЯ -> В СУНДУК
 
             if (HasItem(data.inventory))
 
@@ -96,12 +83,10 @@ public class InventorySlot : MonoBehaviour
 
 
 
-    // Проверяет, есть ли хотя бы 1 такой предмет в списке
 
     private bool HasItem(List<Item> sourceList)
 
     {
-
         foreach (var item in sourceList)
 
         {
@@ -114,16 +99,9 @@ public class InventorySlot : MonoBehaviour
 
     }
 
-
-
-    // Логика переноса 1 единицы предмета
-
     private void TransferItem(List<Item> from, List<Item> to)
 
     {
-
-        // 1. Убираем из источника
-
         for (int i = 0; i < from.Count; i++)
 
         {
@@ -134,8 +112,6 @@ public class InventorySlot : MonoBehaviour
 
                 from[i].amount--;
 
-
-                // Если стало 0 — полностью удаляем из списка данных
 
                 if (from[i].amount <= 0)
 
@@ -150,10 +126,6 @@ public class InventorySlot : MonoBehaviour
             }
 
         }
-
-
-
-        // 2. Добавляем в цель
 
         bool foundInTarget = false;
 
@@ -174,10 +146,6 @@ public class InventorySlot : MonoBehaviour
             }
 
         }
-
-
-
-        // Если в целевом списке такого предмета еще не было — создаем новую запись
 
         if (!foundInTarget)
 

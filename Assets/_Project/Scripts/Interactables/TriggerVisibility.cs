@@ -20,7 +20,6 @@ public class TriggerVisibility : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        // если объект уничтожен (null), ничего не делаем
         if (targetRenderer == null) return;
 
         if (other.CompareTag("Player"))

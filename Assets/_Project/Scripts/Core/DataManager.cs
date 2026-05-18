@@ -27,7 +27,7 @@ public class DataManager : MonoBehaviour
         var liveInventory = gameData.inventory;
         var liveChestInventory = gameData.chestInventory;
         var liveOxygen = gameData.currentOxygen;
-        var liveCollectedItems = gameData.collectedItems; // Живые данные со сцены
+        var liveCollectedItems = gameData.collectedItems; 
 
         gameData.inventory = gameData.checkpointInventory;
         gameData.chestInventory = gameData.checkpointChestInventory;

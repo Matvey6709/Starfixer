@@ -4,8 +4,8 @@ using System.Collections;
 public class Spikes : MonoBehaviour
 {
     [Header("Timing Settings")]
-    public float loweredDuration = 0.5f; // Время в лунках
-    public float raisedDuration = 1.0f;  // Время в поднятом состоянии
+    public float loweredDuration = 0.5f; 
+    public float raisedDuration = 1.0f;  
 
     [Header("Damage & Knockback")]
     public float damageAmount = 10f;
@@ -15,18 +15,16 @@ public class Spikes : MonoBehaviour
 
     [Header("Visual Settings (Смена спрайтов)")]
     public SpriteRenderer spriteRenderer;
-    public Sprite loweredSprite; // Перетащи сюда спрайт ПУСТЫХ ДЫР
-    public Sprite raisedSprite;  // Перетащи сюда спрайт ОТКРЫТЫХ ШИПОВ
+    public Sprite loweredSprite; 
+    public Sprite raisedSprite;  
 
     private bool isRaised = false;
     private float nextDamageTime;
 
     void Start()
     {
-        // Если забыл привязать в инспекторе, ищем на этом же объекте
         if (spriteRenderer == null) spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Начинаем цикл ловушки
         StartCoroutine(SpikesCycleRoutine());
     }
 
@@ -34,7 +32,6 @@ public class Spikes : MonoBehaviour
     {
         while (true)
         {
-            // --- ШИПЫ ОПУЩЕНЫ ---
             isRaised = false;
             if (spriteRenderer != null && loweredSprite != null)
             {
@@ -42,7 +39,6 @@ public class Spikes : MonoBehaviour
             }
             yield return new WaitForSeconds(loweredDuration);
 
-            // --- ШИПЫ ПОДНЯТЫ ---
             isRaised = true;
             if (spriteRenderer != null && raisedSprite != null)
             {

@@ -4,7 +4,6 @@ using Unity.Cinemachine;
 using UnityEngine.UI;
 using System.Collections;
 
-// Этот скрипт требует, чтобы на объекте был компонент Rigidbody2D
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
@@ -63,7 +62,7 @@ public class PlayerController : MonoBehaviour
         HandleMovementInput();
     }
 
-    private void HandleMovementInput() // Управление
+    private void HandleMovementInput()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
@@ -82,7 +81,7 @@ public class PlayerController : MonoBehaviour
             Flip();
     }
 
-    void Flip() //Отзеркаливание игрока
+    void Flip() 
     {
         isFacingRight = !isFacingRight;
         Vector3 currentScale = transform.localScale;
@@ -100,7 +99,6 @@ public class PlayerController : MonoBehaviour
     {
         isKnockedBack = true;
 
-        // Прикладываем резкий импульс в сторону отталкивания
         rb.linearVelocity = direction * force;
 
         yield return new WaitForSeconds(duration);
@@ -153,7 +151,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Default: SpawnPoint в Nimbus, HomeSpawn в SpaceShip
         if (scene.name == "Nimbus")
         {
             if (lastSceneName == "Dump")

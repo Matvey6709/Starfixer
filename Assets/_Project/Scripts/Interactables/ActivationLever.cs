@@ -18,8 +18,8 @@ public class ActivationLever : MonoBehaviour
     public Transform itemSpawnPoint;
 
     [Header("Физика выталкивания предмета")]
-    public bool applyForce = true; // Нужно ли подтолкнуть предмет при появлении
-    public Vector2 throwForce = new Vector2(2f, 3f); // Направление и сила прыжка 
+    public bool applyForce = true; 
+    public Vector2 throwForce = new Vector2(2f, 3f); 
 
     private bool isActivatedByGenerators = false;
     private bool isPulled = false;
@@ -73,7 +73,6 @@ public class ActivationLever : MonoBehaviour
             Debug.Log("[РЫЧАГ] Игрок опустил рычаг!");
         }
 
-        // СПАВН ПРЕДМЕТА
         SpawnDroppedItem();
 
         if (BossFightManager.Instance != null)
@@ -90,20 +89,16 @@ public class ActivationLever : MonoBehaviour
             return;
         }
 
-        // Определяем точку спавна: либо специальный Transform, либо позиция самого рычага
         Vector3 spawnPosition = itemSpawnPoint != null ? itemSpawnPoint.position : transform.position;
 
-        // Создаем предмет на сцене
         GameObject droppedItem = Instantiate(itemPrefab, spawnPosition, Quaternion.identity);
         Debug.Log($"[РЫЧАГ] Предмет {droppedItem.name} успешно выброшен!");
 
-        // Если включена сила выталкивания, пробуем подбросить предмет
         if (applyForce)
         {
             Rigidbody2D rb = droppedItem.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                // Сбрасываем текущую скорость, если она была, и добавляем импульс
                 rb.linearVelocity = Vector2.zero;
                 rb.AddForce(throwForce, ForceMode2D.Impulse);
             }

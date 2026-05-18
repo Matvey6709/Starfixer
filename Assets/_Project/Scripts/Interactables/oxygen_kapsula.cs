@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections.Generic; // ДОБАВИЛИ СЮДА, чтобы работал List<string>
+using System.Collections.Generic; 
 
 public class OxygenKapsula : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class OxygenKapsula : MonoBehaviour
     public bool isFull = true; 
 
     [Header("Настройки капсулы")]
-    public float rechargeTime = 15f; // Время до перезарядки в секундах
+    public float rechargeTime = 15f; 
     private float currentTimer = 0f;
 
     void Start()
@@ -48,7 +48,6 @@ public class OxygenKapsula : MonoBehaviour
 
     void Update()
     {
-        // Логика перезарядки
         if (!isFull)
         {
             currentTimer += Time.deltaTime;
@@ -58,7 +57,6 @@ public class OxygenKapsula : MonoBehaviour
             }
         }
 
-        // Взаимодействие
         if (isPlayerInRange && isFull && Input.GetKeyDown(KeyCode.E))
         {
             Open();
@@ -71,9 +69,8 @@ public class OxygenKapsula : MonoBehaviour
         {
             isFull = false;
             currentTimer = 0f;
-            hatchAnimator.SetBool("IsFull", false); // Анимация открытия
+            hatchAnimator.SetBool("IsFull", false); 
             
-            // Восполняем кислород игроку
             if (PlayerController.Instance != null)
             {
                 PlayerOxygen playerOxygen = PlayerController.Instance.GetComponent<PlayerOxygen>();
@@ -91,9 +88,6 @@ public class OxygenKapsula : MonoBehaviour
                         gd.checkpointOxygen = gd.currentOxygen;
                         gd.checkpointInventory = gd.inventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
                         gd.checkpointChestInventory = gd.chestInventory.ConvertAll(i => new Item { id = i.id, itemName = i.itemName, amount = i.amount });
-                        
-                        // --- НОВАЯ СТРОЧКА ---
-                        // Фиксируем собранные на сценах предметы в чекпоинт
                         gd.checkpointCollectedItems = new List<string>(gd.collectedItems);
 
                         DataManager.Instance.SaveData();
@@ -118,7 +112,7 @@ public class OxygenKapsula : MonoBehaviour
         currentTimer = 0f;
         if (hatchAnimator != null)
         {
-            hatchAnimator.SetBool("IsFull", true); // Анимация закрытия/готовности
+            hatchAnimator.SetBool("IsFull", true);
         }
         Debug.Log("Капсула с кислородом снова доступна!");
     }

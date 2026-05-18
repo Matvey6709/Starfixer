@@ -5,13 +5,13 @@ public class BossFightManager : MonoBehaviour
     public static BossFightManager Instance { get; private set; }
 
     [Header("Ссылки на объекты")]
-    public BossAI bossScript;            // Ссылка на твой скрипт босса
-    public EnergyGenerator[] generators; // Массив из 4-х генераторов
-    public ActivationLever finalLever;   // Ссылка на наш новый рычаг!
+    public BossAI bossScript;            
+    public EnergyGenerator[] generators; 
+    public ActivationLever finalLever;  
 
     private bool bossIsDead = false;
     private bool phaseTwoActivated = false;
-    private bool leverActivated = false; // Флаг, чтобы не активировать рычаг каждый кадр
+    private bool leverActivated = false; 
 
     private void Awake()
     {
@@ -42,7 +42,6 @@ public class BossFightManager : MonoBehaviour
 
         Debug.Log($"Общий прогресс: {totalProgressPercentage}% из 400%. Заряжено полностью: {chargedCount}");
 
-        // Активация 2 фазы (ускорение босса)
         if (!phaseTwoActivated && totalProgressPercentage > 300)
         {
             phaseTwoActivated = true;
@@ -53,13 +52,13 @@ public class BossFightManager : MonoBehaviour
             }
         }
 
-        // ИЗМЕНЕНИЕ ТУТ: Если все 4 генератора готовы, активируем рычаг вместо убийства босса
+
         if (!leverActivated && chargedCount >= 4)
         {
             leverActivated = true;
             if (finalLever != null)
             {
-                finalLever.EnableLever(); // Включаем рычаг!
+                finalLever.EnableLever(); 
             }
             else
             {
@@ -68,7 +67,6 @@ public class BossFightManager : MonoBehaviour
         }
     }
 
-    // Этот метод теперь PUBLIC. Его вызывает скрипт рычага, когда игрок нажимает E
     public void TriggerBossDeath()
     {
         if (bossIsDead) return;

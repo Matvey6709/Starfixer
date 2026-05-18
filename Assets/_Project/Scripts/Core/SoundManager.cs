@@ -150,7 +150,6 @@ public class SoundManager : MonoBehaviour
     private void PlayOneShot(SoundEntry e)
     {
         if (e == null || e.clip == null || sfxSource == null) return;
-        // SFX-mute does not silence UI clicks (так пользователь слышит реакцию кнопок)
         if (sfxMuted && e != buttonClick) return;
         sfxSource.pitch = e.pitch;
         sfxSource.PlayOneShot(e.clip, e.volume);

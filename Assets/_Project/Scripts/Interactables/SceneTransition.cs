@@ -33,14 +33,12 @@ public class SceneTransition : MonoBehaviour
 
     private void Start()
     {
-        // Если проход не требует открытия, считаем, что он изначально "открыт"
         if (!requiresOpening)
         {
             isOpen = true;
         }
         else if (targetAnimator == null)
         {
-            // Пытаемся найти аниматор на этом же объекте, если забыли перетащить руками
             targetAnimator = GetComponent<Animator>();
         }
     }
@@ -77,13 +75,11 @@ public class SceneTransition : MonoBehaviour
     {
         if (!isPlayerInRange) return;
 
-        // 1. Логика открытия/закрытия (если включена галочка Requires Opening)
         if (requiresOpening && Input.GetKeyDown(openKey))
         {
             ToggleDoor();
         }
 
-        // 2. Логика перехода на другую сцену
         if (isOpen && Input.GetKeyDown(enterKey))
         {
             PerformTransition();
@@ -92,9 +88,8 @@ public class SceneTransition : MonoBehaviour
 
     private void ToggleDoor()
     {
-        isOpen = !isOpen; // Переключаем состояние (открыто/закрыто)
+        isOpen = !isOpen; 
 
-        // Запускаем анимацию, если аниматор назначен
         if (targetAnimator != null)
         {
             targetAnimator.SetBool(animatorBoolName, isOpen);
@@ -137,7 +132,6 @@ public class SceneTransition : MonoBehaviour
         Debug.Log($"Перемещаемся на сцену: {sceneToLoad}!");
         SoundManager.PlayTeleport();
 
-        // Безопасный вызов перехода: используем твой GameManager, а если его нет на сцене — обычный SceneManager
         if (GameManager.Instance != null)
         {
             GameManager.Instance.LoadNextScene(sceneToLoad);
