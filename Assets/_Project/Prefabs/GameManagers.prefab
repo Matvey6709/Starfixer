@@ -98,11 +98,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda88f4ebc55b64468ce11f84dd92e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  footstepsClip: {fileID: 8300000, guid: e093ff15bd2e36443ab69f12ceb347ce, type: 3}
-  deathClip: {fileID: 8300000, guid: 0813942091742f742969807ec6ecae8f, type: 3}
-  pickupClip: {fileID: 8300000, guid: 66c2fd8dfd762694fad41550bcf81962, type: 3}
-  chestOpenClip: {fileID: 8300000, guid: c75f19e1d6022454282f19d39b0b3eb2, type: 3}
-  teleportClip: {fileID: 8300000, guid: 99ee4793b69fb5f4ca76122a4b6c2b61, type: 3}
-  questCompleteClip: {fileID: 8300000, guid: 8e93787bcc474234abc1f7aca720861b, type: 3}
-  sfxVolume: 1
-  footstepsVolume: 0.7
+  footsteps:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  death:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  pickup:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  chestOpen:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  teleport:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  questComplete:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  bossShot:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  bossLaser:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  buttonClick:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  lobbyMusic:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  gameplayMusic:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1
+  bossMusic:
+    clip: {fileID: 0}
+    volume: 1
+    pitch: 1

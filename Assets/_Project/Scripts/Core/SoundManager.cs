@@ -85,8 +85,22 @@ public class SoundManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene s, LoadSceneMode m)
     {
-        WireAllButtons();
-        UpdateMusicForScene(s.name);
+        if (s.name == "AutroScene" || s.name == "Intro")
+        {
+            StopAllSounds(); 
+        }
+        else
+        {
+            WireAllButtons();
+            UpdateMusicForScene(s.name);
+        }
+    }
+
+    public void StopAllSounds()
+    {
+        if (musicSource != null) musicSource.Stop();
+        if (footstepsSource != null) footstepsSource.Stop();
+        if (sfxSource != null) sfxSource.Stop();
     }
 
     private void UpdateMusicForScene(string sceneName)

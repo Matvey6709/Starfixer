@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ComputerOSIRIS : MonoBehaviour
 {
@@ -32,7 +33,30 @@ public class ComputerOSIRIS : MonoBehaviour
 
     private void ExecuteComputerAction()
     {
-        Debug.Log("Вход в систему OSIRIS... функциональность будет добавлена.");
-        InteractionHintUI.Show("Подключение к OSIRIS...");
+        if (LocalQuestManager.Instance != null)
+        {
+            if (LocalQuestManager.Instance.AreAllQuestsCompleted())
+            {
+                Debug.Log("Все системы восстановлены! Запуск протокола взлета...");
+                InteractionHintUI.Show("Системы в норме. Запуск двигателей...");
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.LoadNextScene("AutroScene");
+                }
+                else
+                {
+                    SceneManager.LoadScene("AutroScene");
+                }
+            }
+            else
+            {
+                Debug.Log("Попытка взлета отклонена: детали не собраны.");
+                InteractionHintUI.Show("<color=red>Ошибка: Соберите все детали для ремонта!</color>");
+            }
+        }
+        else
+        {
+            Debug.LogError("LocalQuestManager не найден на сцене!");
+        }
     }
 }

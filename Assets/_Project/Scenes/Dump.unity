@@ -15318,10 +15318,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2641285021306903810, guid: 899e3da978853b54e8a643024516daa1, type: 3}
-      propertyPath: moveSpeed
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5034554522636547493, guid: 899e3da978853b54e8a643024516daa1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.27821
@@ -15365,10 +15361,6 @@ PrefabInstance:
     - target: {fileID: 7832840114512198004, guid: 899e3da978853b54e8a643024516daa1, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9204274091369804610, guid: 899e3da978853b54e8a643024516daa1, type: 3}
-      propertyPath: oxygenDepletionRate
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

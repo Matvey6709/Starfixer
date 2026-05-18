@@ -43,15 +43,15 @@ public class PlayerController : MonoBehaviour
     }
 
    void Start()
-{
-    rb = GetComponent<Rigidbody2D>();
-    anim = GetComponent<Animator>();
-
-    if (inventory == null) 
     {
-        inventory = GetComponent<Inventory>();
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+
+        if (inventory == null) 
+        {
+            inventory = GetComponent<Inventory>();
+        }
     }
-}
 
     void Update()
     {

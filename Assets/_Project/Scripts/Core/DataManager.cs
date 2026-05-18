@@ -24,21 +24,21 @@ public class DataManager : MonoBehaviour
 
     public void SaveData()
     {
-        var liveInventory      = gameData.inventory;
+        var liveInventory = gameData.inventory;
         var liveChestInventory = gameData.chestInventory;
-        var liveOxygen         = gameData.currentOxygen;
+        var liveOxygen = gameData.currentOxygen;
         var liveCollectedItems = gameData.collectedItems; // Живые данные со сцены
 
-        gameData.inventory      = gameData.checkpointInventory;
+        gameData.inventory = gameData.checkpointInventory;
         gameData.chestInventory = gameData.checkpointChestInventory;
-        gameData.currentOxygen  = gameData.checkpointOxygen;
-        gameData.collectedItems = gameData.checkpointCollectedItems; 
+        gameData.currentOxygen = gameData.checkpointOxygen;
+        gameData.collectedItems = gameData.checkpointCollectedItems;
 
         string json = JsonUtility.ToJson(gameData);
 
-        gameData.inventory      = liveInventory;
+        gameData.inventory = liveInventory;
         gameData.chestInventory = liveChestInventory;
-        gameData.currentOxygen  = liveOxygen;
+        gameData.currentOxygen = liveOxygen;
         gameData.collectedItems = liveCollectedItems;
 
         PlayerPrefs.SetString("SaveData", json);
@@ -90,7 +90,7 @@ public class DataManager : MonoBehaviour
     {
         RefillList(gameData.inventory, gameData.checkpointInventory);
         RefillList(gameData.chestInventory, gameData.checkpointChestInventory);
-        
+
         RefillStringList(gameData.collectedItems, gameData.checkpointCollectedItems);
 
         gameData.currentOxygen = gameData.checkpointOxygen > 0

@@ -104,8 +104,6 @@ public class LocalQuestManager : MonoBehaviour
             sb.AppendLine(GetTaskStatus("Пройти свалку", IsDumpCleared())); 
             sb.AppendLine(GetTaskStatus("Пройти лабиринт", IsMazeCleared()));
             sb.AppendLine(GetTaskStatus("Одолеть босса", IsBossDefeated()));
-            bool readyToRepair = IsDumpCleared() && IsMazeCleared() && IsBossDefeated();
-            sb.AppendLine(GetTaskStatus("Починить корабль", false)); 
         }
         else if (sceneName == "Dump")
         {
@@ -150,9 +148,14 @@ public class LocalQuestManager : MonoBehaviour
         return GetCount("chip") >= 1;
     }
 
-    bool IsBossDefeated()
+    public bool IsBossDefeated()
     {
         return GetCount("engine_part") >= 1; 
+    }
+
+    public bool AreAllQuestsCompleted()
+    {
+        return IsDumpCleared() && IsMazeCleared() && IsBossDefeated();
     }
 
 

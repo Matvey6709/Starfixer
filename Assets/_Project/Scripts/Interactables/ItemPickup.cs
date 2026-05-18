@@ -8,7 +8,7 @@ public class ItemPickup : MonoBehaviour
 
     [Header("Уникальный паспорт объекта")]
     [Tooltip("Придумай уникальный ID для этого конкретного объекта на сцене (например: dump_patch_1)")]
-    public string uniqueID; 
+    public string uniqueID;
 
     private void Start()
     {
