@@ -27,6 +27,9 @@ public class GameData
     [Header("Постоянство предметов")]
     public List<string> collectedItems = new List<string>();
 
+    [Header("Прогрессия меню")]
+    public bool introWatched = false;
+
     public GameData()
     {
         currentOxygen = maxOxygen;

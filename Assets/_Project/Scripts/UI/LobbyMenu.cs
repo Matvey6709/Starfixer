@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LobbyMenu : MonoBehaviour
@@ -6,6 +7,7 @@ public class LobbyMenu : MonoBehaviour
     [SerializeField] private Button continueButton;
     [SerializeField] private Button tutorialButton;
     [SerializeField] private TutorialUI tutorialUI;
+    [SerializeField] private string introSceneName = "IntroScene";
 
     private void Start()
     {
@@ -15,6 +17,13 @@ public class LobbyMenu : MonoBehaviour
 
     private void OnContinueClicked()
     {
+        var data = DataManager.Instance != null ? DataManager.Instance.gameData : null;
+        if (data != null && !data.introWatched)
+        {
+            SceneManager.LoadScene(introSceneName);
+            return;
+        }
+
         GameManager.Instance.ContinueGame();
     }
 
